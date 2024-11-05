@@ -11,10 +11,10 @@ COEX предоставляет открытый [Debian-репозиторий]
 Вы можете прислать Pull Request в [git-репозиторий с пакетами](https://github.com/CopterExpress/packages), добавляющий или обновляющий ваш пакет (файл с расширением `.deb`), относящийся с Клеверу или ROS. После принятия ваш пакет будет доступен для установки с помощью утилиты `apt`:
 
 ```bash
-sudo apt install ros-noetic-clover-some-feature
+sudo apt install ros-noetic-drone-some-feature
 ```
 
-Пакеты, расширяющие функциональность Клевера, рекомендуется называть с префиксом `clover_`, например `clover_some_feature`.
+Пакеты, расширяющие функциональность Клевера, рекомендуется называть с префиксом `drone_`, например `drone_some_feature`.
 
 ## Использование на обычной Raspberry Pi OS
 

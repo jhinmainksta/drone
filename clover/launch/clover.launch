@@ -20,7 +20,7 @@
     <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${logger}: ${message}"/>
 
     <!-- mavros -->
-    <include file="$(find clover)/launch/mavros.launch">
+    <include file="$(find drone)/launch/mavros.launch">
         <arg name="fcu_conn" value="$(arg fcu_conn)"/>
         <arg name="fcu_ip" value="$(arg fcu_ip)"/>
         <arg name="fcu_sys_id" value="$(arg fcu_sys_id)"/>
@@ -34,13 +34,13 @@
     </node>
 
     <!-- aruco markers -->
-    <include file="$(find clover)/launch/aruco.launch" if="$(eval aruco or force_init)">
+    <include file="$(find drone)/launch/aruco.launch" if="$(eval aruco or force_init)">
         <arg name="force_init" value="$(arg force_init)"/>
         <arg name="disable" value="$(eval not aruco)"/>
     </include>
 
     <!-- optical flow -->
-    <node pkg="nodelet" type="nodelet" name="optical_flow" args="load clover/optical_flow main_camera_nodelet_manager" if="$(arg optical_flow)" clear_params="true" output="screen" respawn="true">
+    <node pkg="nodelet" type="nodelet" name="optical_flow" args="load drone/optical_flow main_camera_nodelet_manager" if="$(arg optical_flow)" clear_params="true" output="screen" respawn="true">
         <remap from="image_raw" to="main_camera/image_raw"/>
         <remap from="camera_info" to="main_camera/camera_info"/>
         <param name="calc_flow_gyro" value="true"/>
@@ -49,13 +49,13 @@
     </node>
 
     <!-- simplified offboard control -->
-    <node name="simple_offboard" pkg="clover" type="simple_offboard" output="screen" clear_params="true">
+    <node name="simple_offboard" pkg="drone" type="simple_offboard" output="screen" clear_params="true">
         <param name="reference_frames/main_camera_optical" value="map"/>
         <param name="terrain_frame_mode" value="range"/>
     </node>
 
     <!-- main camera -->
-    <include file="$(find clover)/launch/main_camera.launch" if="$(arg main_camera)">
+    <include file="$(find drone)/launch/main_camera.launch" if="$(arg main_camera)">
         <arg name="simulator" value="$(arg simulator)"/>
     </include>
 
@@ -76,15 +76,15 @@
     <node pkg="tf2_ros" type="static_transform_publisher" name="rangefinder_frame" args="0 0 -0.05 0 1.5707963268 0 base_link rangefinder" if="$(arg rangefinder_vl53l1x)"/>
 
     <!-- led strip -->
-    <include file="$(find clover)/launch/led.launch" if="$(arg led)">
+    <include file="$(find drone)/launch/led.launch" if="$(arg led)">
         <arg name="simulator" value="$(arg simulator)"/>
     </include>
 
-    <!-- Clover Blocks -->
-    <node name="clover_blocks" pkg="clover_blocks" type="clover_blocks" output="screen" if="$(arg blocks)"/>
+    <!-- Drone Blocks -->
+    <node name="drone_blocks" pkg="drone_blocks" type="drone_blocks" output="screen" if="$(arg blocks)"/>
 
     <!-- rc backend -->
-    <node name="rc" pkg="clover" type="rc" output="screen" if="$(arg rc)" clear_params="true">
+    <node name="rc" pkg="drone" type="rc" output="screen" if="$(arg rc)" clear_params="true">
         <!-- Send fake GCS heartbeats. Set to "true" for upstream PX4 -->
         <param name="use_fake_gcs" value="false"/>
     </node>

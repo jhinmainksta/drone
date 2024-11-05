@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 
-<robot name="clover" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="drone" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name='enable_wind' default='false' />
   <xacro:arg name='enable_logging' default='false' />
-  <xacro:arg name='log_file' default='clover' />
+  <xacro:arg name='log_file' default='drone' />
 
   <!-- macros for gazebo plugins, sensors -->
   <xacro:include filename="../component_snippets.urdf.xacro" />
 
   <!-- Instantiate iris "mechanics" -->
-  <xacro:include filename="clover4_physics.xacro" />
+  <xacro:include filename="drone4_physics.xacro" />
 
   <xacro:if value="$(arg enable_wind)">
     <xacro:wind_plugin_macro
@@ -25,7 +25,7 @@
   </xacro:if>
 
   <!-- Gazebo plugins -->
-  <xacro:include filename="$(find clover_description)/urdf/clover/clover4_gazebo.xacro" />
+  <xacro:include filename="$(find drone_description)/urdf/drone/drone4_gazebo.xacro" />
 
   <xacro:if value="$(arg enable_logging)">
     <!-- Instantiate a logger -->

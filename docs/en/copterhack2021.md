@@ -1,6 +1,6 @@
 # CopterHack 2021
 
-CopterHack 2021 is a team competition for the development of open source projects for the Clover quadcopter platform. Fifty-four teams from 12 countries took part in the competition.
+CopterHack 2021 is a team competition for the development of open source projects for the Drone quadcopter platform. Fifty-four teams from 12 countries took part in the competition.
 
 All information about the event can be found on the official website: https://coex.tech/copterhack.
 
@@ -19,7 +19,7 @@ Full stream of the final: https://www.youtube.com/watch?v=Z06vxuAHmuE.
 
 |Place|Team|Project|Points|
 |-|-|-|-|
-|1|🇧🇾 FTL|[AdvancedClover](../ru/advanced_clover.html)|18.8|
+|1|🇧🇾 FTL|[AdvancedDrone](../ru/advanced_drone.html)|18.8|
 |2|🇷🇺 EasyToFly|[EasyToFly](../ru/easytofly.html)|18.5|
 |3|🇩🇪 ADDI|[3D-printed generative design frame](generative_design_frame.md)|17.8|
 |4|🇰🇬 AT Makers|[D-drone Graffiti-copter](ddrone.md)|16.7|

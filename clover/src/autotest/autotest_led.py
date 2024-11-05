@@ -2,7 +2,7 @@
 
 import rospy
 import functools
-from clover.srv import SetLEDEffect
+from drone.srv import SetLEDEffect
 from led_msgs.srv import SetLEDs
 from led_msgs.msg import LEDStateArray, LEDState
 from util import handle_response

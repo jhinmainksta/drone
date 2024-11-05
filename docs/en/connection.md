@@ -39,16 +39,16 @@ If the pin marked GND is occupied, you can use any other ground pin (look at the
 
     If the parameters in the file are different or missing, then edit the file and restart the Raspberry Pi.
 
-5. Change the connection type from `usb` to `uart` in the Clover' launch file `~/catkin_ws/src/clover/clover/launch/clover.launch`:
+5. Change the connection type from `usb` to `uart` in the Drone' launch file `~/catkin_ws/src/drone/drone/launch/drone.launch`:
 
     ```xml
     <arg name="fcu_conn" default="uart"/>
     ```
 
-    If you change the launch file, you need to restart the `clover' service:
+    If you change the launch file, you need to restart the `drone' service:
 
     ```bash
-    sudo systemctl restart clover
+    sudo systemctl restart drone
     ```
 
 6. Make sure that the connection is working properly by running the following command:

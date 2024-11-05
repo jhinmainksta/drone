@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(clover_blocks)
+project(drone_blocks)
 
 find_package(catkin REQUIRED COMPONENTS message_generation)
 
@@ -69,7 +69,7 @@ catkin_package(
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
 
-catkin_install_python(PROGRAMS src/clover_blocks
+catkin_install_python(PROGRAMS src/drone_blocks
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

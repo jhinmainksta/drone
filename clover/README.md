@@ -1,4 +1,4 @@
-# `clover` ROS package
+# `drone` ROS package
 
 A bundle for autonomous navigation and drone control.
 
@@ -6,11 +6,11 @@ A bundle for autonomous navigation and drone control.
 
 Install ROS Noetic according to the [documentation](http://wiki.ros.org/noetic/Installation), then [create a Catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
 
-Clone this repo to directory `~/catkin_ws/src/clover`:
+Clone this repo to directory `~/catkin_ws/src/drone`:
 
 ```bash
 cd ~/catkin_ws/src
-git clone https://github.com/CopterExpress/clover.git clover
+git clone https://github.com/CopterExpress/drone.git drone
 ```
 
 All the required ROS packages (including `mavros` and `opencv`) can be installed using `rosdep`:
@@ -36,7 +36,7 @@ curl https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/inst
 You may optionally install udev rules to provide `/dev/px4fmu` symlink to your PX4-based flight controller connected over USB. Copy `99-px4fmu.rules` to your `/lib/udev/rules.d` folder:
 
 ```bash
-cd ~/catkin_ws/src/clover/clover/udev
+cd ~/catkin_ws/src/drone/drone/udev
 sudo cp 99-px4fmu.rules /lib/udev/rules.d
 ```
 
@@ -47,9 +47,9 @@ Alternatively you may change the `fcu_url` property in `mavros.launch` file to p
 To start connection to the flight controller, use:
 
 ```bash
-roslaunch clover clover.launch
+roslaunch drone drone.launch
 ```
 
-For the simulation information see the [corresponding article](https://clover.coex.tech/en/simulation.html).
+For the simulation information see the [corresponding article](https://drone.coex.tech/en/simulation.html).
 
 > Note that the package is configured to connect to `/dev/px4fmu` by default (see [previous section](#manual-installation)). Install udev rules or specify path to your FCU device in `mavros.launch`.

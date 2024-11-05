@@ -23,31 +23,31 @@ CopterHack 2022 — это международный конкурс по ра�
 |Место|Команда|Проект|Балл|
 |:-:|-|-|-|
 |1|🇧🇷 Atena - Grupo SEMEAR|[Swarm in Blocks](../en/swarm_in_blocks.html)|21.6|
-|2|🇧🇾 FTL|[Advanced Clover 2](advanced_clover_simulator.md)|19.9|
-|3|🇷🇺 Clover Rescue Team|[Rescue Clover](../en/clover-rescue-team.html)|17.7|
+|2|🇧🇾 FTL|[Advanced Drone 2](advanced_drone_simulator.md)|19.9|
+|3|🇷🇺 Drone Rescue Team|[Rescue Drone](../en/drone-rescue-team.html)|17.7|
 |4|🇷🇺 С305|[Система мониторинга воздуха](air_monitor.md)|17.3|
 |5|🇷🇺 Space clowns|[Copter For Space](c4s.md)|16.2|
 |6|🇷🇺 CopterCat|[CopterCat](copter_cat.md)|16.1|
 |7|🇷🇺 Stereo|[Neural obstacle avoidance](../en/obstacle-avoidance-potential-fields.html)|15.85|
 |8|🇮🇳 DJS Phoenix|[Autonomous valet parking drone assistance](../en/djs_phoenix_ikshana.html)|11.7|
-|✕|🇷🇺 R.S.|[Drone Hawk](https://github.com/slavaroot/clover/blob/droneHawkSecurity/docs/ru/drone-hawk-security.md)||
-|✕|🇲🇾 Moopt|[IoT Water Monitoring & Optimization](https://github.com/kafechew/clover/blob/master/docs/en/moopt-uav.md)||
-|✕|🇷🇺 Дрой Ронов|[Clover Swarm](https://github.com/stinger000/clever/blob/clover_swarm_request/docs/ru/clover-swarm.md)||
-|✕|🇷🇺 SPECTRE|[SPECTRE](https://github.com/alakhmenev/clover/blob/spectre_team/docs/ru/spectre_team.md)||
-|✕|🇰🇬 Alatoo University Team|[Облачная платформа для симулятора Клевера](https://github.com/pteacher/clover/blob/clover_simulator/docs/ru/clover-development-studio.md)||
-|✕|🇷🇺 Clevertron|[Clevertron](https://github.com/Daniel-drone/clover/blob/Clevertron-1/docs/ru/clevertron.md)||
-|✕|🇵🇱 Edgenoon|[Neural and vision-based landing method](https://github.com/edgenoon-ai/clover/blob/neural_vision_based_landing_method/docs/en/neural_vision_based_landing_method.md)||
-|✕|🇩🇪 Inondro|[Inondro Pix](https://github.com/Inondro/clover/blob/inondro-pix/docs/en/inondro_copterhack22_pix.md)||
-|✕|🇷🇺 SolidEye|[Разработка лидара без движущихся частей](https://github.com/feanorgg/clover/blob/solideye/docs/ru/solid_eye.md)||
-|✕|🇰🇬 AI_U_CLOVER|[AIU_CLOVER](https://github.com/zhibekm/clover/blob/zhibekm-patch-1/docs/en/aiu-article.md)||
-|✕|🇻🇳 Dragon&Tanker|[Dragon&Tanker](https://github.com/uml4/clover/blob/drone_observe_autonomous_car/docs/en/dragon_and_tanker_team.md)||
-|✕|🇷🇺 V-NAV|[Visual Navigation](https://github.com/v-nav/clover/blob/v-nav_article/docs/ru/v-nav.md)||
-|✕|🇷🇺 Джедаи 1581|[Ретранслятор на базе Клевера](https://github.com/JJNIK/clover/blob/patch-1/docs/ru/1581.md)||
-|✕|🇷🇺 Lucky flight|[Swarm of Improved Clover](https://github.com/bessiaka/clover/blob/Lucky-flight/docs/ru/lucky_flight.md)||
-|✕|🇺🇸 EnviroFleet|[EnviroFleet](https://github.com/gueyman/clover/blob/envirofleet/docs/en/enviro_fleet.md)||
-|✕|🇷🇺 Бизнес-гуси|[Drone Rover Climbing System](https://github.com/HexaHEX/clover/blob/CopterHack2022_Business_Geese-1/docs/ru/business_geese.md)||
-|✕|🇷🇺 fuall|[Доставка дронами](https://github.com/Silly4s/clover/blob/master/docs/ru/dostavka.md)||
-|✕|🇷🇺 Scout_Drone|[Создание поисково-спасательного беспилотного летательного аппарата](https://github.com/MustafaNatur/clover/blob/Scout_Drone.md/docs/ru/scout_drone.md)|&nbsp;|
+|✕|🇷🇺 R.S.|[Drone Hawk](https://github.com/slavaroot/drone/blob/droneHawkSecurity/docs/ru/drone-hawk-security.md)||
+|✕|🇲🇾 Moopt|[IoT Water Monitoring & Optimization](https://github.com/kafechew/drone/blob/master/docs/en/moopt-uav.md)||
+|✕|🇷🇺 Дрой Ронов|[Drone Swarm](https://github.com/stinger000/clever/blob/drone_swarm_request/docs/ru/drone-swarm.md)||
+|✕|🇷🇺 SPECTRE|[SPECTRE](https://github.com/alakhmenev/drone/blob/spectre_team/docs/ru/spectre_team.md)||
+|✕|🇰🇬 Alatoo University Team|[Облачная платформа для симулятора Клевера](https://github.com/pteacher/drone/blob/drone_simulator/docs/ru/drone-development-studio.md)||
+|✕|🇷🇺 Clevertron|[Clevertron](https://github.com/Daniel-drone/drone/blob/Clevertron-1/docs/ru/clevertron.md)||
+|✕|🇵🇱 Edgenoon|[Neural and vision-based landing method](https://github.com/edgenoon-ai/drone/blob/neural_vision_based_landing_method/docs/en/neural_vision_based_landing_method.md)||
+|✕|🇩🇪 Inondro|[Inondro Pix](https://github.com/Inondro/drone/blob/inondro-pix/docs/en/inondro_copterhack22_pix.md)||
+|✕|🇷🇺 SolidEye|[Разработка лидара без движущихся частей](https://github.com/feanorgg/drone/blob/solideye/docs/ru/solid_eye.md)||
+|✕|🇰🇬 AI_U_CLOVER|[AIU_CLOVER](https://github.com/zhibekm/drone/blob/zhibekm-patch-1/docs/en/aiu-article.md)||
+|✕|🇻🇳 Dragon&Tanker|[Dragon&Tanker](https://github.com/uml4/drone/blob/drone_observe_autonomous_car/docs/en/dragon_and_tanker_team.md)||
+|✕|🇷🇺 V-NAV|[Visual Navigation](https://github.com/v-nav/drone/blob/v-nav_article/docs/ru/v-nav.md)||
+|✕|🇷🇺 Джедаи 1581|[Ретранслятор на базе Клевера](https://github.com/JJNIK/drone/blob/patch-1/docs/ru/1581.md)||
+|✕|🇷🇺 Lucky flight|[Swarm of Improved Drone](https://github.com/bessiaka/drone/blob/Lucky-flight/docs/ru/lucky_flight.md)||
+|✕|🇺🇸 EnviroFleet|[EnviroFleet](https://github.com/gueyman/drone/blob/envirofleet/docs/en/enviro_fleet.md)||
+|✕|🇷🇺 Бизнес-гуси|[Drone Rover Climbing System](https://github.com/HexaHEX/drone/blob/CopterHack2022_Business_Geese-1/docs/ru/business_geese.md)||
+|✕|🇷🇺 fuall|[Доставка дронами](https://github.com/Silly4s/drone/blob/master/docs/ru/dostavka.md)||
+|✕|🇷🇺 Scout_Drone|[Создание поисково-спасательного беспилотного летательного аппарата](https://github.com/MustafaNatur/drone/blob/Scout_Drone.md/docs/ru/scout_drone.md)|&nbsp;|
 
 ✕ – команды, не дошедшие до финала.
 
@@ -58,7 +58,7 @@ CopterHack 2022 — это международный конкурс по ра�
 Команды приглашаются принять участие в работе над следующими кейсами компании:
 
 1. Разработка платы полетного контроллера Pixhawk FMUv6U размером 55*40 мм и возможностью установки Raspberry Pi CM4.
-2. Облачная платформа для [симулятора Клевера](https://clover.coex.tech/ru/simulation.html) по аналогии или на основе [ROS Development Studio](https://app.theconstructsim.com/).
+2. Облачная платформа для [симулятора Клевера](https://drone.coex.tech/ru/simulation.html) по аналогии или на основе [ROS Development Studio](https://app.theconstructsim.com/).
 
 Список кейсов может быть расширен.
 
@@ -103,7 +103,7 @@ CopterHack 2022 — это международный конкурс по ра�
 
 > **Note** Для подачи заявки необходимо иметь аккаунт на [GitHub](https://github.com).
 
-Подготовьте вашу заявку и пришлите ее в виде Draft Pull Request в [репозиторий Клевера](https://github.com/CopterExpress/clover).
+Подготовьте вашу заявку и пришлите ее в виде Draft Pull Request в [репозиторий Клевера](https://github.com/CopterExpress/drone).
 
 1. Сделайте форк репозитория Клевера:
 

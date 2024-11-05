@@ -1,7 +1,7 @@
 <package format="2">
-  <name>clover_description</name>
+  <name>drone_description</name>
   <version>0.25.0</version>
-  <description>The clover_description package provides URDF models of the Clover series of quadcopters.</description>
+  <description>The drone_description package provides URDF models of the Drone series of quadcopters.</description>
 
   <maintainer email="sfalexrog@gmail.com">Alexey Rogachevskiy</maintainer>
 
@@ -13,8 +13,8 @@
 
   <license>MIT</license>
 
-  <url type="website">https://github.com/CopterExpress/clover</url>
-  <url type="bugtracker">https://github.com/CopterExpress/clover/issues</url>
+  <url type="website">https://github.com/CopterExpress/drone</url>
+  <url type="bugtracker">https://github.com/CopterExpress/drone/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>xacro</depend>

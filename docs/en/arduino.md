@@ -4,7 +4,7 @@ For interaction with ROS topics and services on a Raspberry Pi, you can use the 
 
 The main tutorial for rosserial: http://wiki.ros.org/rosserial_arduino/Tutorials
 
-Arduino is to be installed on Clover and connected via a USB port.
+Arduino is to be installed on Drone and connected via a USB port.
 
 ## Configuring Arduino IDE
 
@@ -21,19 +21,19 @@ The obtained folder `ros_lib` is to be copied to `<sketches folder>/libraries` o
 To run the program on Arduino once, you can use command:
 
 ```(bash)
-roslaunch clover arduino.launch
+roslaunch drone arduino.launch
 ```
 
-To start the link with Arduino at the startup automatically, set argument `arduino` in the Clover launch file (`~/catkin_ws/src/clover/clover/launch/clover.launch`):
+To start the link with Arduino at the startup automatically, set argument `arduino` in the Drone launch file (`~/catkin_ws/src/drone/drone/launch/drone.launch`):
 
 ```xml
 <arg name="arduino" default="true"/>
 ```
 
-After the launch file is edited, restart the `clover` service:
+After the launch file is edited, restart the `drone` service:
 
 ```(bash)
-sudo systemctl restart clover
+sudo systemctl restart drone
 ```
 
 ## Delays
@@ -59,7 +59,7 @@ for(int i=0; i<8; i++) {
 }
 ```
 
-## Working with Clover
+## Working with Drone
 
 The set of services and topics is similar to the regular set in [simple_offboard](simple_offboard.md) and [mavros](mavros.md).
 
@@ -69,11 +69,11 @@ An example of a program that controls the copter by position using the `navigate
 // Connecting libraries for working with rosserial
 #include <ros.h>
 
-// Connecting Clover and MAVROS package message header files
-#include <clover/Navigate.h>
+// Connecting Drone and MAVROS package message header files
+#include <drone/Navigate.h>
 #include <mavros_msgs/SetMode.h>
 
-using namespace clover;
+using namespace drone;
 using namespace mavros_msgs;
 
 ros::NodeHandle nh;
@@ -174,7 +174,7 @@ With Arduino, you can use the [`get_telemetry` service](simple_offboard.md). To 
 
 // ...
 
-#include <clover/GetTelemetry.h>
+#include <drone/GetTelemetry.h>
 
 // ...
 

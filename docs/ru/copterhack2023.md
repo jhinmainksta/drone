@@ -8,7 +8,7 @@ CopterHack 2023 — это международный конкурс по ра�
 
 На конкурс принимаются проекты с открытым исходным кодом и совместимые с платформой квадрокоптера "Клевер". На протяжении конкурса команды работают на собственными идеями и разработками, приближая их к состоянию готового продукта. В этом участникам помогают эксперты отрасли через лекции и регулярную обратную связь.
 
-Финал конкурса CopterHack 2022 прошел 27 мая 2023. Победителями стала команда 🇷🇺 **[Clover Cloud Platform](../en/clover-cloud-platform.html)**.
+Финал конкурса CopterHack 2022 прошел 27 мая 2023. Победителями стала команда 🇷🇺 **[Drone Cloud Platform](../en/drone-cloud-platform.html)**.
 
 ## Полный стрим финала
 
@@ -18,23 +18,23 @@ CopterHack 2023 — это международный конкурс по ра�
 
 |Место|Команда|Проект|Балл|
 |:-:|-|-|-|
-|1|🇷🇺 Clover Cloud Team|[Clover Cloud Platform](../en/clover-cloud-platform.html)|21.7|
-|2|🇧🇾 FTL|[Advanced Clover 2](../en/advanced_clover_simulator_platform.html)|21|
-|3|🇨🇦 Clover with Motion Capture System|[Clover with Motion Capture System](../en/mocap_clover.html)|20.5|
+|1|🇷🇺 Drone Cloud Team|[Drone Cloud Platform](../en/drone-cloud-platform.html)|21.7|
+|2|🇧🇾 FTL|[Advanced Drone 2](../en/advanced_drone_simulator_platform.html)|21|
+|3|🇨🇦 Drone with Motion Capture System|[Drone with Motion Capture System](../en/mocap_drone.html)|20.5|
 |4|🇧🇷 Atena|[Swarm in Blocks 2](../en/swarm_in_blocks_2.html)|20.3|
 |5|🇷🇺 C305|[Система радио-навигации](nav-beacon.md)|17.5|
 |6|🇮🇳 DJS PHOENIX|[Autonomous Racing Drone](../en/djs_phoenix_chetak.html)|14.6|
 |7|🇷🇺 Лицей №128|[Платформа для зарядки квадрокоптера](../en/liceu128.html)|13.7|
-|✕|🇰🇬 Zavarka|[Система обмена грузами с помощью конвейера](https://github.com/aiurobotics/clover/blob/conveyance/docs/ru/conveyance.md)||
-|✕|🇷🇺 FSOTM|[Дрон-перехватчик](https://github.com/deadln/clover/blob/interceptor/docs/ru/interceptor.md)||
-|✕|🇰🇬 Бездомные|[Дрон-бездомный](https://github.com/Isa-jesus/clover/blob/trash-collector/docs/ru/show_maker.md)||
-|✕|🇷🇺 Digital otters|[Digital otters](https://github.com/Mentalsupernova/clover_cool/blob/new-article.md/docs/ru/new-article.md)||
-|✕|🇷🇺 Light Flight|[Сопровождение БПЛА при посадке](https://github.com/SirSerow/clover_inertial_ns/blob/inertial-1/Description.md)||
-|✕|🇰🇬 LiveSavers|[LiveSavers](https://github.com/Sarvar00/clover/blob/livesavers/docs/ru/livesaver.md)||
-|✕|🇷🇺 XenCOM|[Bound by fate](https://github.com/xenkek/clover/blob/xenkek-patch-1/docs/ru/bound_by_fate.md)||
-|✕|🇷🇺 Ava_Clover|[DoubleClover](https://github.com/bessiaka/clover/blob/Ava_Clover/docs/ru/soosocta.md)||
-|✕|🇷🇺 TPU_1|[Совместная транспортировка груза](https://github.com/shamoleg/clover/blob/tpu_1/docs/ru/tpu_1.md)||
-|✕|🇷🇺 TPU_2|[Алгоритм полета сквозь лесную местность](https://github.com/shamoleg/clover/blob/tpu_2/docs/ru/tpu_2.md)|&nbsp;|
+|✕|🇰🇬 Zavarka|[Система обмена грузами с помощью конвейера](https://github.com/aiurobotics/drone/blob/conveyance/docs/ru/conveyance.md)||
+|✕|🇷🇺 FSOTM|[Дрон-перехватчик](https://github.com/deadln/drone/blob/interceptor/docs/ru/interceptor.md)||
+|✕|🇰🇬 Бездомные|[Дрон-бездомный](https://github.com/Isa-jesus/drone/blob/trash-collector/docs/ru/show_maker.md)||
+|✕|🇷🇺 Digital otters|[Digital otters](https://github.com/Mentalsupernova/drone_cool/blob/new-article.md/docs/ru/new-article.md)||
+|✕|🇷🇺 Light Flight|[Сопровождение БПЛА при посадке](https://github.com/SirSerow/drone_inertial_ns/blob/inertial-1/Description.md)||
+|✕|🇰🇬 LiveSavers|[LiveSavers](https://github.com/Sarvar00/drone/blob/livesavers/docs/ru/livesaver.md)||
+|✕|🇷🇺 XenCOM|[Bound by fate](https://github.com/xenkek/drone/blob/xenkek-patch-1/docs/ru/bound_by_fate.md)||
+|✕|🇷🇺 Ava_Drone|[DoubleDrone](https://github.com/bessiaka/drone/blob/Ava_Drone/docs/ru/soosocta.md)||
+|✕|🇷🇺 TPU_1|[Совместная транспортировка груза](https://github.com/shamoleg/drone/blob/tpu_1/docs/ru/tpu_1.md)||
+|✕|🇷🇺 TPU_2|[Алгоритм полета сквозь лесную местность](https://github.com/shamoleg/drone/blob/tpu_2/docs/ru/tpu_2.md)|&nbsp;|
 
 Смотрите все оценки по критериям в [полной таблице](https://docs.google.com/spreadsheets/d/1qTpW8zFVdSEGnbtOvMgQD6DcYwu8URFt1RKOCeUaOe8).
 
@@ -77,7 +77,7 @@ CopterHack 2023 — это международный конкурс по ра�
 
 > **Note** Для подачи заявки необходимо иметь аккаунт на [GitHub](https://github.com).
 
-Подготовьте вашу заявку и пришлите ее в виде Draft Pull Request в [репозиторий Клевера](https://github.com/CopterExpress/clover).
+Подготовьте вашу заявку и пришлите ее в виде Draft Pull Request в [репозиторий Клевера](https://github.com/CopterExpress/drone).
 
 1. Сделайте форк репозитория Клевера:
 

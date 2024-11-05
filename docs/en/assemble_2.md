@@ -1,7 +1,7 @@
-Clover 2 construction kit assembly instruction
+Drone 2 construction kit assembly instruction
 ============================================
 
-![Clover](../assets/clever2.jpg)
+![Drone](../assets/clever2.jpg)
 
 ## The constructor kit contents
 
@@ -78,7 +78,7 @@ Clover 2 construction kit assembly instruction
 
 ## Additional equipment
 
-### This equipment is not part of the Clover 2 constructor kit, but it is required for the assembly process
+### This equipment is not part of the Drone 2 constructor kit, but it is required for the assembly process
 
 1. Soldering iron
 2. Colophony/ Flux (neutral)

@@ -5,7 +5,7 @@ import math
 from math import nan, inf
 import signal
 import sys
-from clover import srv
+from drone import srv
 from std_srvs.srv import Trigger
 from sensor_msgs.msg import Range
 from util import handle_response

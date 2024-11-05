@@ -2,9 +2,9 @@ name: Documentation
 
 on:
   push:
-    branches: [ '*' ]
+    branches: ["*"]
   pull_request:
-    branches: [ '*' ]
+    branches: ["*"]
   workflow_dispatch:
 
 permissions:
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v1
-        with: { node-version: '10' }
+        with: { node-version: "10" }
       - name: Setup tools
         run: |
           sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
@@ -41,8 +41,8 @@ jobs:
           ./check_unused_assets.py
       - name: Build GitBook
         run: |
-         gitbook install
-         gitbook build
+          gitbook install
+          gitbook build
       - name: Generate PDF
         id: generate-pdf
         env:
@@ -50,20 +50,20 @@ jobs:
         continue-on-error: ${{ env.GITBOOK_SKIP_PDF != '' }}
         if: ${{ github.event_name == 'push' }}
         run: |
-          for i in 1 2 3 4; do gitbook pdf ./ _book/clover.pdf && break || sleep 1; done
+          for i in 1 2 3 4; do gitbook pdf ./ _book/drone.pdf && break || sleep 1; done
           sudo apt-get -q install ghostscript
-          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=_book/clover_ru_compressed.pdf _book/clover_ru.pdf
-          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=_book/clover_en_compressed.pdf _book/clover_en.pdf
-          rm _book/clover_ru.pdf && mv _book/clover_ru_compressed.pdf _book/clover_ru.pdf
-          rm _book/clover_en.pdf && mv _book/clover_en_compressed.pdf _book/clover_en.pdf
-          ls -lah _book/clover*.pdf
+          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=_book/drone_ru_compressed.pdf _book/drone_ru.pdf
+          gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=_book/drone_en_compressed.pdf _book/drone_en.pdf
+          rm _book/drone_ru.pdf && mv _book/drone_ru_compressed.pdf _book/drone_ru.pdf
+          rm _book/drone_en.pdf && mv _book/drone_en_compressed.pdf _book/drone_en.pdf
+          ls -lah _book/drone*.pdf
           echo '::set-output name=GITBOOK_PDF_OK::1'
       - name: Download older PDFs
         if: ${{ !steps.generate-pdf.outputs.GITBOOK_PDF_OK }}
         run: |
-          rm -f _book/clover*.pdf
-          wget --no-verbose https://clover.coex.tech/clover_ru.pdf -P _book/
-          wget --no-verbose https://clover.coex.tech/clover_en.pdf -P _book/
+          rm -f _book/drone*.pdf
+          wget --no-verbose https://drone.coex.tech/drone_ru.pdf -P _book/
+          wget --no-verbose https://drone.coex.tech/drone_en.pdf -P _book/
       - name: Upload artifact
         # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
         uses: actions/upload-pages-artifact@v1
@@ -73,8 +73,8 @@ jobs:
   deploy-docs:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     concurrency:
-        group: "pages"
-        cancel-in-progress: true
+      group: "pages"
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

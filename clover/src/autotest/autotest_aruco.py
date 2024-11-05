@@ -5,7 +5,7 @@ import math
 import signal
 import sys
 import dynamic_reconfigure.client
-from clover import srv
+from drone import srv
 from std_srvs.srv import Trigger
 from sensor_msgs.msg import Range
 from aruco_pose.msg import MarkerArray

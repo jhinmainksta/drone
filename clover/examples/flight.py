@@ -1,7 +1,7 @@
-# Information: https://clover.coex.tech/programming
+# Information: https://drone.coex.tech/programming
 
 import rospy
-from clover import srv
+from drone import srv
 from std_srvs.srv import Trigger
 
 rospy.init_node('flight')

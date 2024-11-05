@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>clover_blocks</name>
+  <name>drone_blocks</name>
   <version>0.25.0</version>
-  <description>Blockly programming support for Clover</description>
+  <description>Blockly programming support for Drone</description>
   <maintainer email="okalachev@gmail.com">Oleg Kalachev</maintainer>
   <license>MIT</license>
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <url type="repository">https://github.com/CopterExpress/clover</url>
+  <url type="repository">https://github.com/CopterExpress/drone</url>
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
   <!-- Authors do not have to be maintainers, but could be -->

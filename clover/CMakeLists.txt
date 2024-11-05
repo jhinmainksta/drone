@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(clover)
+project(drone)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -179,14 +179,14 @@ add_library(${PROJECT_NAME}
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(simple_offboard src/simple_offboard.cpp)
 
-# PX4 already has rc and led targets, so we prefix ours with clover_
-add_executable(clover_rc src/rc.cpp)
+# PX4 already has rc and led targets, so we prefix ours with drone_
+add_executable(drone_rc src/rc.cpp)
 
 add_executable(camera_markers src/camera_markers.cpp)
 
 add_executable(vpe_publisher src/vpe_publisher.cpp)
 
-add_executable(clover_led src/led.cpp)
+add_executable(drone_led src/led.cpp)
 
 add_executable(shell src/shell.cpp)
 
@@ -196,23 +196,23 @@ target_link_libraries(simple_offboard
 )
 
 # Don't change actual binary names
-set_target_properties(clover_rc PROPERTIES OUTPUT_NAME rc)
+set_target_properties(drone_rc PROPERTIES OUTPUT_NAME rc)
 
-set_target_properties(clover_led PROPERTIES OUTPUT_NAME led)
+set_target_properties(drone_led PROPERTIES OUTPUT_NAME led)
 
-target_link_libraries(clover_rc ${catkin_LIBRARIES})
+target_link_libraries(drone_rc ${catkin_LIBRARIES})
 
 target_link_libraries(camera_markers ${catkin_LIBRARIES})
 
 target_link_libraries(vpe_publisher ${catkin_LIBRARIES})
 
-target_link_libraries(clover_led ${catkin_LIBRARIES})
+target_link_libraries(drone_led ${catkin_LIBRARIES})
 
 target_link_libraries(shell ${catkin_LIBRARIES})
 
 add_dependencies(simple_offboard ${PROJECT_NAME}_generate_messages_cpp)
 
-add_dependencies(clover_led ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(drone_led ${PROJECT_NAME}_generate_messages_cpp)
 
 add_dependencies(shell ${PROJECT_NAME}_generate_messages_cpp)
 
@@ -249,7 +249,7 @@ target_link_libraries(${PROJECT_NAME}
 # )
 
 # Mark executables and/or libraries for installation
-install(TARGETS simple_offboard clover_rc camera_markers vpe_publisher clover_led shell clover
+install(TARGETS simple_offboard drone_rc camera_markers vpe_publisher drone_led shell drone
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

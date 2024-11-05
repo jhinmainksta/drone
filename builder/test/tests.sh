@@ -46,7 +46,7 @@ fi
 # ros stuff
 
 roscore -h
-rosversion clover
+rosversion drone
 rosversion aruco_pose
 rosversion mavros
 rosversion mavros_extras
@@ -75,7 +75,7 @@ if [ -z $VM ]; then
 fi
 
 # determine user home directory
-[ $VM ] && H="/home/clover" || H="/home/pi"
+[ $VM ] && H="/home/drone" || H="/home/pi"
 
 # test basic ros tool work
 source $H/catkin_ws/devel/setup.bash
@@ -94,5 +94,5 @@ roslaunch -h
 
 # validate web tools present
 [ -d $H/.ros/www ]
-[ "$(readlink $H/.ros/www/clover)" = "$H/catkin_ws/src/clover/clover/www" ]
-[ "$(readlink $H/.ros/www/clover_blocks)" = "$H/catkin_ws/src/clover/clover_blocks/www" ]
+[ "$(readlink $H/.ros/www/drone)" = "$H/catkin_ws/src/drone/drone/www" ]
+[ "$(readlink $H/.ros/www/drone_blocks)" = "$H/catkin_ws/src/drone/drone_blocks/www" ]

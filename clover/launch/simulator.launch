@@ -1,4 +1,4 @@
 <launch>
-    <!-- shortcut for running the simulation (`roslaunch clover simulator.launch`) -->
-    <include file="$(find clover_simulation)/launch/simulator.launch"/>
+    <!-- shortcut for running the simulation (`roslaunch drone simulator.launch`) -->
+    <include file="$(find drone_simulation)/launch/simulator.launch"/>
 </launch>

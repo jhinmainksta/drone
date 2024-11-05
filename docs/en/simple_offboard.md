@@ -1,8 +1,8 @@
 # Autonomous flight
 
-> **Note** The following applies to the [image version **0.24**](https://github.com/CopterExpress/clover/releases/tag/v0.24), which is not yet released. Older documentation is still available for [for version **0.23**](https://github.com/CopterExpress/clover/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/en/simple_offboard.md).
+> **Note** The following applies to the [image version **0.24**](https://github.com/CopterExpress/drone/releases/tag/v0.24), which is not yet released. Older documentation is still available for [for version **0.23**](https://github.com/CopterExpress/drone/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/en/simple_offboard.md).
 
-The `simple_offboard` module of the `clover` package is intended for simplified programming of the autonomous drone flight (`OFFBOARD` [flight mode](modes.md)). It allows setting the desired flight tasks, and automatically transforms [coordinates between frames](frames.md).
+The `simple_offboard` module of the `drone` package is intended for simplified programming of the autonomous drone flight (`OFFBOARD` [flight mode](modes.md)). It allows setting the desired flight tasks, and automatically transforms [coordinates between frames](frames.md).
 
 `simple_offboard` is a high level system for interacting with the flight controller. For a more low level system, see [mavros](mavros.md).
 
@@ -14,7 +14,7 @@ You need to create proxies for services before calling them. Use the following t
 
 ```python
 import rospy
-from clover import srv
+from drone import srv
 from std_srvs.srv import Trigger
 
 rospy.init_node('flight') # 'flight' is name of your ROS node

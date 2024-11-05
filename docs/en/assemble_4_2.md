@@ -1,6 +1,6 @@
-# Clover 4.2 assembly
+# Drone 4.2 assembly
 
-Dimensional drawing – [clover-4.2.pdf](https://github.com/CopterExpress/clover/raw/master/docs/assets/dimensional-drawing/clover-4.2.pdf).
+Dimensional drawing – [drone-4.2.pdf](https://github.com/CopterExpress/drone/raw/master/docs/assets/dimensional-drawing/drone-4.2.pdf).
 
 ## Fasteners size
 
@@ -114,7 +114,7 @@ Dimensional drawing – [clover-4.2.pdf](https://github.com/CopterExpress/clove
 
 ## Installing Flight Controller
 
-Clover 4 drone kit allows you to install various flight controllers, for example [COEX Pix](coex_pix.md) and Pixracer.
+Drone 4 drone kit allows you to install various flight controllers, for example [COEX Pix](coex_pix.md) and Pixracer.
 
 > **Caution** During installation the flight controller, pay attention to the arrow located on the board, it should be directed to the copter bow.
 

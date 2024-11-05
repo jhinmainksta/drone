@@ -4,14 +4,14 @@ Using QGroundControl via Wi-Fi
 ![QGroundControl](../assets/qground.png)
 
 You can monitor, control, calibrate and configure the flight controller of the quadcopter using QGroundControl via Wi-Fi.
-This requires [connecting to Wi-Fi](wifi.md) of the `clover-xxxx` network.
+This requires [connecting to Wi-Fi](wifi.md) of the `drone-xxxx` network.
 
-After that, in the Clover launch-file `/home/pi/catkin_ws/src/clover/clover/launch/clover.launch`, choose one of the preconfigured bridge modes.
+After that, in the Drone launch-file `/home/pi/catkin_ws/src/drone/drone/launch/drone.launch`, choose one of the preconfigured bridge modes.
 
-After editing the launch-file, restart the `clover` service:
+After editing the launch-file, restart the `drone` service:
 
 ```(bash)
-sudo systemctl restart clover
+sudo systemctl restart drone
 ```
 
 TCP bridge

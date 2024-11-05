@@ -1,7 +1,7 @@
-# Information: https://clover.coex.tech/led
+# Information: https://drone.coex.tech/led
 
 import rospy
-from clover.srv import SetLEDEffect
+from drone.srv import SetLEDEffect
 
 rospy.init_node('leds')
 

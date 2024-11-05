@@ -1,3 +1,3 @@
-print("Warning: clever package is renamed to clover")
+print("Warning: clever package is renamed to drone")
 
-from clover.srv import *
+from drone.srv import *

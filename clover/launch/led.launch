@@ -7,7 +7,7 @@
 
     <arg name="simulator" default="false"/>
 
-    <!-- For additional help go to https://clover.coex.tech/led -->
+    <!-- For additional help go to https://drone.coex.tech/led -->
 
     <!-- ws281x led strip driver -->
     <node pkg="ws281x" name="led" type="ws281x_node" clear_params="true" output="screen" if="$(eval ws281x and not simulator)">
@@ -21,7 +21,7 @@
     </node>
 
     <!-- high level led effects control, events notification with leds -->
-    <node pkg="clover" name="led_effect" type="led" clear_params="true" output="screen" if="$(arg led_effect)">
+    <node pkg="drone" name="led_effect" type="led" clear_params="true" output="screen" if="$(arg led_effect)">
         <param name="led" value="led"/>
         <param name="blink_rate" value="2"/>
         <param name="fade_period" value="0.5"/>

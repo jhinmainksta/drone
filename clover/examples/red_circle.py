@@ -1,6 +1,6 @@
 # This example makes the drone find and follow the red circle.
 # To test in the simulator, place 'Red Circle' model on the floor.
-# More information: https://clover.coex.tech/red_circle
+# More information: https://drone.coex.tech/red_circle
 
 # Input topic: main_camera/image_raw (camera image)
 # Output topics:
@@ -14,7 +14,7 @@ from math import nan
 from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import PointStamped, Point
 from cv_bridge import CvBridge
-from clover import long_callback, srv
+from drone import long_callback, srv
 import tf2_ros
 import tf2_geometry_msgs
 import image_geometry

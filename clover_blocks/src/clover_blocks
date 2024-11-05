@@ -18,11 +18,11 @@ import re
 import uuid
 from std_msgs.msg import Bool, String
 from std_srvs.srv import Trigger
-from clover_blocks.msg import Prompt
-from clover_blocks.srv import Run, Load, Store
+from drone_blocks.msg import Prompt
+from drone_blocks.srv import Run, Load, Store
 
 
-rospy.init_node('clover_blocks')
+rospy.init_node('drone_blocks')
 
 stop = None
 block = ''
@@ -120,7 +120,7 @@ def run(req):
                 traceback.print_exc()
                 etype, value, tb = sys.exc_info()
                 fmt = traceback.format_exception(etype, value, tb)
-                fmt.pop(1) # remove 'clover_blocks' file frame
+                fmt.pop(1) # remove 'drone_blocks' file frame
                 exc_info = ''.join(fmt)
                 error_pub.publish(str(e) + '\n\n' + exc_info)
 

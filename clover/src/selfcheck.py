@@ -239,8 +239,8 @@ def check_fcu():
             return
 
         if not is_process_running('px4', exact=True): # can't use px4 console in SITL
-            clover_tag = re.compile(r'-cl[oe]ver\.\d+$')
-            clover_fw = False
+            drone_tag = re.compile(r'-cl[oe]ver\.\d+$')
+            drone_fw = False
 
             # Make sure the console is available to us
             mavlink_exec('\n')
@@ -251,15 +251,15 @@ def check_fcu():
             for line in version_str.split('\n'):
                 if line.startswith('FW version: '):
                     info(line[len('FW version: '):])
-                elif line.startswith('FW git tag: '): # only Clover's firmware
+                elif line.startswith('FW git tag: '): # only Drone's firmware
                     tag = line[len('FW git tag: '):]
-                    clover_fw = clover_tag.search(tag)
+                    drone_fw = drone_tag.search(tag)
                     info(tag)
                 elif line.startswith('HW arch: '):
                     info(line[len('HW arch: '):])
 
-            if not clover_fw:
-                info('not Clover PX4 firmware, check https://clover.coex.tech/firmware')
+            if not drone_fw:
+                info('not Drone PX4 firmware, check https://drone.coex.tech/firmware')
 
         est = get_param('SYS_MC_EST_GROUP')
         if est == 1:
@@ -300,7 +300,7 @@ def check_fcu():
             try:
                 battery = rospy.wait_for_message('mavros/battery', BatteryState, timeout=3)
                 if not battery.cell_voltage:
-                    failure('cell voltage is not available, https://clover.coex.tech/power')
+                    failure('cell voltage is not available, https://drone.coex.tech/power')
                 else:
                     cell = battery.cell_voltage[0]
                     # number of cells 1 means this is overall voltage
@@ -312,7 +312,7 @@ def check_fcu():
                         cell /= n_cells
 
                     if cell > 4.3 or cell < 3.0:
-                        failure('incorrect cell voltage: %.2f V, https://clover.coex.tech/power', cell)
+                        failure('incorrect cell voltage: %.2f V, https://drone.coex.tech/power', cell)
                     elif cell < 3.7:
                         failure('critically low cell voltage: %.2f V, recharge battery', cell)
             except rospy.ROSException:
@@ -745,9 +745,9 @@ def check_rangefinder():
 
 @check('Boot duration')
 def check_boot_duration():
-    if not os.path.exists('/etc/clover_version'):
+    if not os.path.exists('/etc/drone_version'):
         info('skip check')
-        return # Don't check not on Clover's image
+        return # Don't check not on Drone's image
 
     output = subprocess.check_output('systemd-analyze').decode()
     r = re.compile(r'([\d\.]+)s\s*$', flags=re.MULTILINE)
@@ -772,19 +772,19 @@ def check_cpu_usage():
                     cpu.strip(), cmd.strip(), pid.strip())
 
 
-@check('clover.service')
-def check_clover_service():
-    if not os.path.exists('/etc/clover_version'):
-        return # Don't check not on Clover's image
+@check('drone.service')
+def check_drone_service():
+    if not os.path.exists('/etc/drone_version'):
+        return # Don't check not on Drone's image
 
     try:
-        output = subprocess.check_output('systemctl show -p ActiveState --value clover.service'.split(),
+        output = subprocess.check_output('systemctl show -p ActiveState --value drone.service'.split(),
                                          stderr=subprocess.STDOUT).decode()
     except subprocess.CalledProcessError as e:
         failure('systemctl returned %s: %s', e.returncode, e.output)
         return
     if 'inactive' in output:
-        failure('service is not running, try sudo systemctl restart clover')
+        failure('service is not running, try sudo systemctl restart drone')
         return
     elif 'failed' in output:
         failure('service failed to run, check your launch-files')
@@ -794,7 +794,7 @@ def check_clover_service():
     r = re.compile(r'^(.*)\[(FATAL|ERROR| WARN)\] \[\d+.\d+\]: (.*?)(\x1b(.*))?$')
     error_count = OrderedDict()
     try:
-        for line in open('/tmp/clover.err', 'r'):
+        for line in open('/tmp/drone.err', 'r'):
             skip = False
             for substr in BLACKLIST:
                 if substr in line:
@@ -825,12 +825,12 @@ def check_clover_service():
 @check('Image')
 def check_image():
     try:
-        info('version: %s', open('/etc/clover_version').read().strip())
+        info('version: %s', open('/etc/drone_version').read().strip())
     except IOError:
         try:
-            info('VM version: %s', open('/etc/clover_vm_version').read().strip())
+            info('VM version: %s', open('/etc/drone_vm_version').read().strip())
         except IOError:
-            info('no /etc/clover_version file, not the Clover image?')
+            info('no /etc/drone_version file, not the Drone image?')
 
 
 @check('Preflight status')
@@ -860,9 +860,9 @@ def check_preflight_status():
 
 @check('Network')
 def check_network():
-    if not os.path.exists('/etc/clover_version'):
+    if not os.path.exists('/etc/drone_version'):
         # TODO:
-        return # Don't check not on Clover's image
+        return # Don't check not on Drone's image
 
     ros_hostname = os.environ.get('ROS_HOSTNAME', '').strip()
 
@@ -881,7 +881,7 @@ def check_network():
                 if ros_hostname in parts:
                     break
         else:
-            failure('not found %s in /etc/hosts, ROS will malfunction if network interfaces are down, https://clover.coex.tech/hostname', ros_hostname)
+            failure('not found %s in /etc/hosts, ROS will malfunction if network interfaces are down, https://drone.coex.tech/hostname', ros_hostname)
 
 
 @check('RPi health')
@@ -960,7 +960,7 @@ def selfcheck():
     checks = [
         check_image,
         check_board,
-        check_clover_service,
+        check_drone_service,
         check_network,
         check_fcu,
         check_imu,

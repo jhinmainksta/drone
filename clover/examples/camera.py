@@ -1,4 +1,4 @@
-# Information: https://clover.coex.tech/camera
+# Information: https://drone.coex.tech/camera
 
 # Example on basic working with the camera and image processing:
 
@@ -11,7 +11,7 @@ import rospy
 import cv2
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from clover import long_callback
+from drone import long_callback
 
 rospy.init_node('cv')
 bridge = CvBridge()

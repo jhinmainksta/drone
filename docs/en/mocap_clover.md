@@ -1,9 +1,9 @@
 # Project Video
 
-[CopterHack-2023](copterhack2023.md), team **Clover with Motion Capture System**. Click logo for project video.
+[CopterHack-2023](copterhack2023.md), team **Drone with Motion Capture System**. Click logo for project video.
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=jOovjo0aBpQ&t=4s&ab_channel=SeanSmith"><img src="../assets/mocap_clover/semi_logo_small.jpg" width="70%" height="70%" alt="IMAGE ALT TEXT"></a>
+  <a href="https://www.youtube.com/watch?v=jOovjo0aBpQ&t=4s&ab_channel=SeanSmith"><img src="../assets/mocap_drone/semi_logo_small.jpg" width="70%" height="70%" alt="IMAGE ALT TEXT"></a>
 </div>
 
 ## Table of Contents
@@ -28,7 +28,7 @@ The list of team members:
 ## Educational Document {#item-two}
 
 **My Gitbook, with detailed step by step analysis of the proposed project during the CopterHack 2023 competition can be found:**
-[MoCap Clover Gitbook](https://0406hockey.gitbook.io/mocap-clover/).
+[MoCap Drone Gitbook](https://0406hockey.gitbook.io/mocap-drone/).
 
 This page gives a broad overview on the motivation and purpose behind this project, it also provides research and industry based knowledge around UAV application that the reader may find interesting. If the user is interested in the technical details and implementation then refer to the educational Gitbook document.
 
@@ -40,7 +40,7 @@ Aerial robotics has become a common focus in research and industry over the past
 
 <!-- markdownlint-disable MD044 -->
 
-This enables researchers to study the dynamics and behavior of UAVs in different environments, evaluate their performance, and develop advanced control algorithms for improved flight stability, autonomy, and safety. Research facilities around the world tend to built research drones from the ground up using off-the-shelf components with open source platforms such as PX4. While the end goal is the same: transferring pose feedback to the flight controller along with high level commands, the platforms and methods can vary significantly depending on factors such as onboard and offboard computing frameworks and data transfer methods. Many developers have a detailed background and understanding of the theoretical components of their research, however, adapting hardware configurations to their own platform such as sensor feedback and sensor fusion is not obvious. The purpose of this project is to provide detailed documentation on integrating the Clover platform with the MoCap system along with examples to familiarize users with the hardware, sensor fusion, high and low level controller development, and trajectory tracking.
+This enables researchers to study the dynamics and behavior of UAVs in different environments, evaluate their performance, and develop advanced control algorithms for improved flight stability, autonomy, and safety. Research facilities around the world tend to built research drones from the ground up using off-the-shelf components with open source platforms such as PX4. While the end goal is the same: transferring pose feedback to the flight controller along with high level commands, the platforms and methods can vary significantly depending on factors such as onboard and offboard computing frameworks and data transfer methods. Many developers have a detailed background and understanding of the theoretical components of their research, however, adapting hardware configurations to their own platform such as sensor feedback and sensor fusion is not obvious. The purpose of this project is to provide detailed documentation on integrating the Drone platform with the MoCap system along with examples to familiarize users with the hardware, sensor fusion, high and low level controller development, and trajectory tracking.
 
 <!-- markdownlint-enable MD044 -->
 
@@ -59,12 +59,12 @@ The main goal in this section is to educate the reader on the MoCap system hardw
 | Task      | Description |
 | --------- | ----------- |
 | Camera Placement      | Position the motion capture cameras in strategic locations around the area where the UAV will be flying. The number of cameras and their placement will depend on the size of the area and the desired capture volume. Typically, cameras are placed on tripods or mounted on walls or ceilings at specific heights and angles to capture the UAV's movements from different perspectives. **A simple 4-camera setup example is provided in the educational document**. |
-| Marker Placement   | Attach OptiTrack markers to the UAV in specific locations. OptiTrack markers are small reflective spheres that are used as reference points for the motion capture system to track the UAV's position and movements. **An example placement on the Clover is shown in the educational document**.
+| Marker Placement   | Attach OptiTrack markers to the UAV in specific locations. OptiTrack markers are small reflective spheres that are used as reference points for the motion capture system to track the UAV's position and movements. **An example placement on the Drone is shown in the educational document**.
 | System Calibration | Perform system calibration to establish the spatial relationship between the cameras and the markers. This involves capturing a calibration sequence, during which a known pattern or object is moved in the capture volume. The system uses this data to calculate the precise positions and orientations of the cameras and markers in 3D space, which is crucial for accurate motion capture.  |
 
 With these components completed correctly, you are well on your way to commanding indoor autonomous missions like this:
      <p align="center">
-    <img title="Figure-8" alt="Alt text" src="../assets/mocap_clover/drone_approach_small.jpg" width="60%" height="50%">
+    <img title="Figure-8" alt="Alt text" src="../assets/mocap_drone/drone_approach_small.jpg" width="60%" height="50%">
     </p>
 
 <!--
@@ -73,11 +73,11 @@ With these components completed correctly, you are well on your way to commandin
     - Data Collection: Once the motion capture system is properly set up and calibrated, you can start collecting data for your UAV research. The system will continuously track the positions and movements of the markers on the UAV in real-time, providing precise data that can be used for various analyses and experiments.
     - Data Analysis: Analyze the captured data using appropriate software to extract relevant information for your UAV research. This may involve tracking the UAV's position, velocity, acceleration, orientation, and other parameters, and analyzing how they change over time or in response to different conditions or inputs.
 -->
-Overall, configuring a motion capture system for UAV research requires careful planning, precise marker placement, accurate system calibration, and thorough validation to ensure accurate and reliable data collection for your research purposes. For more information, refer to the [informative documentation](https://0406hockey.gitbook.io/mocap-clover/hardware/motion-capture-setup-optitrack).
+Overall, configuring a motion capture system for UAV research requires careful planning, precise marker placement, accurate system calibration, and thorough validation to ensure accurate and reliable data collection for your research purposes. For more information, refer to the [informative documentation](https://0406hockey.gitbook.io/mocap-drone/hardware/motion-capture-setup-optitrack).
 
 ### Data Transfer {#item-transfer}
 
-With the data acquired from the MoCap system, the main goal in this section is to transfer it to the Raspberry Pi onboard the Clover and remap it to the flight controller/PX4 for control. A summary of the steps are listed:
+With the data acquired from the MoCap system, the main goal in this section is to transfer it to the Raspberry Pi onboard the Drone and remap it to the flight controller/PX4 for control. A summary of the steps are listed:
 
 <p align="center">
     <img title="Figure-8" alt="Alt text" src="https://drive.google.com/uc?export=view&id=1B0OMIGveFZNyE1_UHpmBOukeFVgl-bTV" width="50%" height="50%">
@@ -87,9 +87,9 @@ With the data acquired from the MoCap system, the main goal in this section is t
 * Data Transmission: The pose data is transmitted from the motion capture system to a Raspberry Pi using VRPN and a ROS network. While this works, I have implemented a strictly UDP data transmission method where highlighting the setup process and ease of use will be a future development, both configurations can be seen in the below figures. The Raspberry Pi acts as an intermediary for processing and relaying the data to the flight controller onboard the UAV using MAVROS. The connection can be established using USB or UART, I chose UART in my setups.
 
  <p align="center">
-       <img src="../assets/mocap_clover/block_ROS.jpg" width="49%" alt="ROS Block"/>
-       <img src="../assets/mocap_clover/block_udp.jpg" width="49%" alt="ROS Block"/>
-       <em>Fig.1(a) - Left figure: ROS network experimental setup topology. Legend: Black dotted line is the provided local network; Blue solid line is the Clover pose transmission where the final transmission from laptop to Pi is over a ROS network; Red line is hardware connections; MAVLink arrow is communication via a MAVLink protocol. .</em> <br>
+       <img src="../assets/mocap_drone/block_ROS.jpg" width="49%" alt="ROS Block"/>
+       <img src="../assets/mocap_drone/block_udp.jpg" width="49%" alt="ROS Block"/>
+       <em>Fig.1(a) - Left figure: ROS network experimental setup topology. Legend: Black dotted line is the provided local network; Blue solid line is the Drone pose transmission where the final transmission from laptop to Pi is over a ROS network; Red line is hardware connections; MAVLink arrow is communication via a MAVLink protocol. .</em> <br>
        <em>Fig.1(b) - Right figure: UDP transmission experimental setup topology. Legend: Black dotted line is the provided local network; Black solid line is the UDP client-server drone pose transmission; Light blue line is the pose data transmission; Red line is hardware connections; Purple line is communication via secure shell protocol and ROS network communication; MAVLink arrow is communication via a MAVLink protocol. .</em>
  </p>
 
@@ -102,18 +102,18 @@ Overall, sending pose feedback from a motion capture system to a Raspberry Pi an
 
 ### Examples {#item-examples}
 
-This section provides two practical examples to help the user better understand the Clover platform, sensor fusion, UAV applications such as trajectory tracking, high level commands, and low level control. The reader will become familiar with an abundance of state-of-the-art open source UAV platforms/technologies such as:
+This section provides two practical examples to help the user better understand the Drone platform, sensor fusion, UAV applications such as trajectory tracking, high level commands, and low level control. The reader will become familiar with an abundance of state-of-the-art open source UAV platforms/technologies such as:
 
 | Platform    | Description |
 | ----------- | ----------- |
-| PX4         | PX4 is an open-source flight control software for drones and other unmanned vehicles used on the Clover. It supports a wide range of platforms and sensors and is used in commercial and research applications. |
+| PX4         | PX4 is an open-source flight control software for drones and other unmanned vehicles used on the Drone. It supports a wide range of platforms and sensors and is used in commercial and research applications. |
 | Robot Operating System (ROS) |ROS is an open-source software framework for building robotic systems. It provides a set of libraries and tools for developing and managing robot software and is widely used in drone and robotics research. |
 | MAVLink| MAVLink is a lightweight messaging protocol for communicating with unmanned systems. It is widely used in drone and robotics applications and provides a flexible and extensible communication framework.|
 |QGroundControl (QGC)| QGC is an open-source ground control station software for drones and other unmanned vehicles. It provides a user-friendly interface for managing and monitoring drone flights and is widely used in commercial and research applications. |
 
 <a id="item-figure8"></a>
 
-1. **A figure-8 high-level trajectory generation**: this example is outlined for both Software in the Loop (SITL) simulations and hardware testing with the Clover platform. Check out this interesting example from my [trajectory tracking section](https://0406hockey.gitbook.io/mocap-clover/examples/flight-tests/complex-trajectory-tracking)!
+1. **A figure-8 high-level trajectory generation**: this example is outlined for both Software in the Loop (SITL) simulations and hardware testing with the Drone platform. Check out this interesting example from my [trajectory tracking section](https://0406hockey.gitbook.io/mocap-drone/examples/flight-tests/complex-trajectory-tracking)!
 
 <p align="center">
     <img title="Figure-8" alt="Alt text" src="https://drive.google.com/uc?export=view&id=1imlqhaUl-v6JuEiOFA4BPvO1N174NWgY">
@@ -133,16 +133,16 @@ In summary, trajectory tracking is crucial for UAV applications as it enables pr
 
 <a id="item-auto"></a>
 
-1. **Clover adaptive auto-tuning**: The second example shows the user how to implement the adaptive auto-tune module provided by PX4 to tune the low-level controllers or attitude control module. You can take a look into how this is accomplished with the Clover platform in the [auto-tuning section](https://0406hockey.gitbook.io/mocap-clover/examples/auto-tuning).
+1. **Drone adaptive auto-tuning**: The second example shows the user how to implement the adaptive auto-tune module provided by PX4 to tune the low-level controllers or attitude control module. You can take a look into how this is accomplished with the Drone platform in the [auto-tuning section](https://0406hockey.gitbook.io/mocap-drone/examples/auto-tuning).
 
 <p align="center">
-    <img title="Figure-8" alt="Alt text" src="../assets/mocap_clover/px4_control_structure.jpg" width="80%" height="80%">
+    <img title="Figure-8" alt="Alt text" src="../assets/mocap_drone/px4_control_structure.jpg" width="80%" height="80%">
     </p>
     <p align = "center">
     <em>Fig.3 - Cascaded PX4 control system [<a href="https://docs.px4.io/v1.12/en/flight_stack/controller_diagrams.html#multicopter-control-architecture">reference</a>].</em>
 </p>
 
-This is a much faster and easier way to tune a real drone and provides good tuning for most air frames. Manual tuning is recommended when auto-tuning dos not work, or when fine-tuning is essential. However, the process is tedious and not easy especially for users with limited control background and experience. The Clover airframe provides sufficient base settings where auto-tuning can further improve performance depending on the Clover being used.
+This is a much faster and easier way to tune a real drone and provides good tuning for most air frames. Manual tuning is recommended when auto-tuning dos not work, or when fine-tuning is essential. However, the process is tedious and not easy especially for users with limited control background and experience. The Drone airframe provides sufficient base settings where auto-tuning can further improve performance depending on the Drone being used.
 
 Here's a summary of the importance of low-level controller performance for UAV applications:
 
@@ -158,19 +158,19 @@ In summary, low-level controller tuning is crucial for UAV applications as it di
 
 ## Conclusion {#item-last}
 
-Over the course of this project I was able to extend my knowledge in robotic applications while enduring many ups and downs along the way. This greatly helped me with my research when testing controller development was required. The motivation behind this documentation is to improve this experience for other researchers, robotic developers, or hobbyists that have a desire to learn fundamental robotic application which is beginning to shape the world we know today. These details can be explored in a [GitBook](https://0406hockey.gitbook.io/mocap-clover/) for those who are interested.
+Over the course of this project I was able to extend my knowledge in robotic applications while enduring many ups and downs along the way. This greatly helped me with my research when testing controller development was required. The motivation behind this documentation is to improve this experience for other researchers, robotic developers, or hobbyists that have a desire to learn fundamental robotic application which is beginning to shape the world we know today. These details can be explored in a [GitBook](https://0406hockey.gitbook.io/mocap-drone/) for those who are interested.
 
-I provided many details on the interworking components required to achieve an indoor autonomous flight setup with the COEX Clover platform. With an extensive background in UAV control, I tried to provide a basic understanding of this for the readers benefit. There are many more sections I would like to include along with improving upon the existing ones. A few examples include firmware testing with hardware in the loop simulations, advanced trajectory generation, and an extensive list of flight examples for the Gazebo simulator with application to hardware.
+I provided many details on the interworking components required to achieve an indoor autonomous flight setup with the COEX Drone platform. With an extensive background in UAV control, I tried to provide a basic understanding of this for the readers benefit. There are many more sections I would like to include along with improving upon the existing ones. A few examples include firmware testing with hardware in the loop simulations, advanced trajectory generation, and an extensive list of flight examples for the Gazebo simulator with application to hardware.
 
 Lastly, I would like to thank the entire COEX team that made this project possible by providing a wonderful platform with support. I would like to give a special thanks to [Oleg Kalachev](https://github.com/okalachev) for helping me debug and succeed through applied learning. With that being said, I hope you all enjoy the resourceful content provided, and I plan on releasing more detailed documents on other interesting topics as I progress through my research and development.
 
 <!--
 ## Project description
 
-This project is an educational reference and detailed tutorial on how to setup the OptiTrack Motion Capture (MoCap) system with the COEX Clover platform.
+This project is an educational reference and detailed tutorial on how to setup the OptiTrack Motion Capture (MoCap) system with the COEX Drone platform.
 It gives brief descriptions on the camera and motive software setup with many resourceful links, but it assumes the user has a basic understanding on how to
-setup the cameras and motive computer software. MoCap markers allow the MoCap to stream positional data of the Clover therefore marker placement is discussed.
-From there details on how to stream position data from the MoCap to the Clover along with how to configure the Clover; specifically, the Raspberry Pi and PX4
+setup the cameras and motive computer software. MoCap markers allow the MoCap to stream positional data of the Drone therefore marker placement is discussed.
+From there details on how to stream position data from the MoCap to the Drone along with how to configure the Drone; specifically, the Raspberry Pi and PX4
 firmware parameters are discussed. The overall network will be provided as it is the most important part.
 
 At the end, I will provide an interesting example such as a tracking a complex trajectory that any user can implement.
@@ -180,19 +180,19 @@ At the end, I will provide an interesting example such as a tracking a complex t
 In many research applications highly precise position feedback is required and that is why a MoCap system is popular in this field of robotics. Research papers
 are published detailed around certain topics such as control, path planning, obstacle avoidance and many more although the details surrounding certain hardware
 setups such as with the MoCap system are not provided. There are a few sources that provide help with setting up the MoCap system with PX4 and other specific
-systems but with limited knowledge of how and why steps are made one might not be able to adapt it to their own setup such as with the Clover. That is why this
-project has been created; so that a student or user can follow this tutorial with the COEX Clover and have a working setup with the MoCap and Clover even with
+systems but with limited knowledge of how and why steps are made one might not be able to adapt it to their own setup such as with the Drone. That is why this
+project has been created; so that a student or user can follow this tutorial with the COEX Drone and have a working setup with the MoCap and Drone even with
 a limited understanding of software and hardware. The article also provides descriptions on why certain things are done to allow the user the better understand
 the system setup.
 
-I currently have the setup running but now working well. The Clover is unable to follow setpoints with any precision
+I currently have the setup running but now working well. The Drone is unable to follow setpoints with any precision
 therefore working through network and software issues seems to be the current stage (I am not sure what exactly is causing this issue actually). I am hoping to
 receive guidance in this area from this project so I can have it working as desired.
 
-### Using Clover platform
+### Using Drone platform
 
-The COEX Clover 4.2 kit is used where the MoCap system setup is specific for the Clover platform. It provides useful information for all robotics users interested in
-implementing external sensor feedback although it is specific for Clover owners.
+The COEX Drone 4.2 kit is used where the MoCap system setup is specific for the Drone platform. It provides useful information for all robotics users interested in
+implementing external sensor feedback although it is specific for Drone owners.
 
 ### Additional information at the request of participants
 I am a masters student looking to implement this project in my research.

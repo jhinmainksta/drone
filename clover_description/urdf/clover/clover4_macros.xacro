@@ -20,7 +20,7 @@
 -->
 
 <!--
-  Clover 4 base model, collision boxes, and other fun stuff. Derived heavily from multirotor_base.xacro
+  Drone 4 base model, collision boxes, and other fun stuff. Derived heavily from multirotor_base.xacro
   from PX4 simulation config files.
 -->
 
@@ -30,7 +30,7 @@
        Body width and height are allowed as parameters, but are ignored for the most part.
        Color is not applicable, since the model has textures and is a compound thingy anyway.
   -->
-  <xacro:macro name="clover4_base_macro"
+  <xacro:macro name="drone4_base_macro"
     params="robot_namespace mass body_width body_height *inertia">
     <link name="base_link"></link>
 
@@ -54,7 +54,7 @@
         <origin xyz="0 0 0.025" rpy="0 0 0" />
         <geometry>
           <!-- Note: Texture files are expected to be in the same directory as the model -->
-          <mesh filename="package://clover_description/meshes/clover4/clover_body_solid.dae"
+          <mesh filename="package://drone_description/meshes/drone4/drone_body_solid.dae"
             scale="1 1 1"/>
         </geometry>
       </visual>
@@ -113,7 +113,7 @@
         <!-- This origin should be the same as in "base_link_inertia" visuals -->
         <origin xyz="0 0 0.025" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://clover_description/meshes/clover4/clover_guards_transparent.dae"
+          <mesh filename="package://drone_description/meshes/drone4/drone_guards_transparent.dae"
             scale="1 1 1"/>
         </geometry>
         <!-- Let me reiterate that you can't put the "material" tag to any effect -->
@@ -166,8 +166,8 @@
    </gazebo>
   </xacro:macro>
 
-  <!-- Rotor joint and link, modified for Clover purposes -->
-  <xacro:macro name="vertical_clover_rotor"
+  <!-- Rotor joint and link, modified for Drone purposes -->
+  <xacro:macro name="vertical_drone_rotor"
     params="robot_namespace suffix direction motor_constant moment_constant parent mass_rotor radius_rotor time_constant_up time_constant_down max_rot_velocity motor_number rotor_drag_coefficient rolling_moment_coefficient mesh *origin *inertia">
     <joint name="rotor_${motor_number}_joint" type="continuous">
       <xacro:insert_block name="origin" />
@@ -188,7 +188,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://clover_description/meshes/${mesh}"
+          <mesh filename="package://drone_description/meshes/${mesh}"
             scale="1 1 1" />
         </geometry>
       </visual>

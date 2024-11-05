@@ -1,10 +1,10 @@
-# clover_blocks
+# drone_blocks
 
-Blockly programming support for Clover.
+Blockly programming support for Drone.
 
 <img src="screenshot.png" width=700>
 
-See user documentation at the [main Clover documentation site](https://clover.coex.tech/en/blocks.html).
+See user documentation at the [main Drone documentation site](https://drone.coex.tech/en/blocks.html).
 
 Internal package documentation is given below.
 
@@ -12,16 +12,16 @@ Internal package documentation is given below.
 
 The frontend files are located in [`www`](./www/) subdirectory. The frontend application uses [`roslib.js`](http://wiki.ros.org/roslibjs) library for communicating with backend node and other ROS resources.
 
-## `clover_blocks` node
+## `drone_blocks` node
 
-`clover_blocks` is the blocks programming backend, implementing all the services and topics needed for running Blockly-generated Python script.
+`drone_blocks` is the blocks programming backend, implementing all the services and topics needed for running Blockly-generated Python script.
 
 ### Services
 
-* `~run` ([*clover_blocks/Run*](srv/Run.srv)) – run Blockly-generated program (in Python).
+* `~run` ([*drone_blocks/Run*](srv/Run.srv)) – run Blockly-generated program (in Python).
 * `~stop` ([*std_srvs/Trigger*](http://docs.ros.org/noetic/api/std_srvs/html/srv/Trigger.html)) – terminate the running program.
-* `~store` ([*clover_blocks/load*](srv/Store.srv)) – store a user program (to `<package_path>/programs` by default).
-* `~load` ([*clover_blocks/load*](srv/Load.srv)) – load all the stored programs.
+* `~store` ([*drone_blocks/load*](srv/Store.srv)) – store a user program (to `<package_path>/programs` by default).
+* `~load` ([*drone_blocks/load*](srv/Load.srv)) – load all the stored programs.
 
 ### Parameters
 
@@ -38,7 +38,7 @@ Parameters read by frontend:
 These parameters also can be set as URL GET-parameters, for example:
 
 ```
-http://<hostname>/clover_blocks/?navigate_tolerance=0.5&sleep_time=0.1
+http://<hostname>/drone_blocks/?navigate_tolerance=0.5&sleep_time=0.1
 ```
 
 ### Topics
@@ -49,7 +49,7 @@ http://<hostname>/clover_blocks/?navigate_tolerance=0.5&sleep_time=0.1
 * `~block` ([*std_msgs/String*](http://docs.ros.org/noetic/api/std_msgs/html/msg/String.html)) – current executing block (maximum topic rate is limited).
 * `~print` ([*std_msgs/String*](http://docs.ros.org/noetic/api/std_msgs/html/msg/String.html)) – user program output messages (published in *print* blocks).
 * `~error` ([*std_msgs/String*](http://docs.ros.org/noetic/api/std_msgs/html/msg/String.html)) – user program errors and exceptions.
-* `~prompt` ([*clover_blocks/Prompt*](msg/Prompt.msg)) – user input request (includes random request ID string).
+* `~prompt` ([*drone_blocks/Prompt*](msg/Prompt.msg)) – user input request (includes random request ID string).
 
 This topic is published from the frontend side:
 

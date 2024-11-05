@@ -1,6 +1,6 @@
-# `clover_simulation` ROS package
+# `drone_simulation` ROS package
 
-This package provides resources necessary for launching Gazebo simulation with Clover, along with `.launch` files for convenience.
+This package provides resources necessary for launching Gazebo simulation with Drone, along with `.launch` files for convenience.
 
 ## Launching the simulation
 
@@ -10,7 +10,7 @@ The simulation may be configured by a set of arguments:
 
 * `mav_id` (*integer*, default: *0*) - MAVLink identifier of the vehicle. **Note**: Multi-vehicle simulation is possible, but requires extensive changes to launch files;
 * `est` (*string*, default: *lpe*, possible values: *lpe*, *ekf2*) - PX4 estimator selection. Note that this may be overriden in the startup scripts for your craft;
-* `vehicle` (*string*, default: *clover*) - PX4 vehicle name. Depending on this parameter, different PX4 presets will be loaded.
+* `vehicle` (*string*, default: *drone*) - PX4 vehicle name. Depending on this parameter, different PX4 presets will be loaded.
 * `main_camera` (*boolean*, default: *true*) - controls whether the drone will have a vision position estimation camera;
 * `rangefinder` (*boolean*, default: *true*) - controls whether the drone will have a laser rangefinder;
 * `led` (*boolean*, default: *true*) - controls whether the drone will have a programmable LED strip;
@@ -19,10 +19,10 @@ The simulation may be configured by a set of arguments:
 In order to start the simulation, run:
 
 ```bash
-roslaunch clover_simulation simulator.launch
+roslaunch drone_simulation simulator.launch
 ```
 
-This will start a new Gazebo instance (using `gazebo_ros` package), load a PX4 SITL instance, spawn a Clover model and start Clover ROS nodes. The PX4 console will be accessible in the terminal where `roslaunch` was performed.
+This will start a new Gazebo instance (using `gazebo_ros` package), load a PX4 SITL instance, spawn a Drone model and start Drone ROS nodes. The PX4 console will be accessible in the terminal where `roslaunch` was performed.
 
 ### Changing simulation speed (PX4 1.9+)
 
@@ -34,15 +34,15 @@ Note that Gazebo may slow the simulation down automatically. This may not be han
 
 ### Changing initial world
 
-By default, the `simulator.launch` file will start the simulation with [`resources/worlds/clover.world`](resources/worlds/clover.world) as its base world. Note that the `real_time_update_rate` is set to 250 - this is required for PX4 lockstep simulation to work correctly.
+By default, the `simulator.launch` file will start the simulation with [`resources/worlds/drone.world`](resources/worlds/drone.world) as its base world. Note that the `real_time_update_rate` is set to 250 - this is required for PX4 lockstep simulation to work correctly.
 
-If you wish to create your own world for the simulation, be sure to derive it from `clover.world` to avoid issues with PX4 plugins.
+If you wish to create your own world for the simulation, be sure to derive it from `drone.world` to avoid issues with PX4 plugins.
 
 You may set the world name in `simulator.launch` as the `world_name` parameter for `gazebo_ros` instance.
 
 ### Configuring the vehicle
 
-`simulator.launch` utilizes the same `clover.launch` file from the `clover` ROS package, so ROS node reconfiguration is the same as on the real drone.
+`simulator.launch` utilizes the same `drone.launch` file from the `drone` ROS package, so ROS node reconfiguration is the same as on the real drone.
 
 PX4 may be reconfigured using QGroundControl, just like a real drone. Some parameters may require rebooting the drone, which is performed by shutting the simulated environment down and restarting it.
 
@@ -50,7 +50,7 @@ PX4 will write its parameters and logs to `${ROS_HOME}/eeprom/parameters` and `$
 
 ## LED plugin (sim_leds)
 
-A visual Gazebo plugin is used for the LED strip. An example of the plugin usage is provided in [`led_strip.xacro`](../clover_description/urdf/leds/led_strip.xacro).
+A visual Gazebo plugin is used for the LED strip. An example of the plugin usage is provided in [`led_strip.xacro`](../drone_description/urdf/leds/led_strip.xacro).
 
 The plugin accepts the following parameters during instantiation:
 

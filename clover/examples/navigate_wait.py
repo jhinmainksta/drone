@@ -1,8 +1,8 @@
-# Information: https://clover.coex.tech/en/snippets.html#navigate_wait
+# Information: https://drone.coex.tech/en/snippets.html#navigate_wait
 
 import math
 import rospy
-from clover import srv
+from drone import srv
 from std_srvs.srv import Trigger
 
 rospy.init_node('flight')

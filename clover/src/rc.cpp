@@ -1,5 +1,5 @@
 /*
- * Clover mobile remote control backend
+ * Drone mobile remote control backend
  * Send ManualControl messages through UDP
  * 'latched_state' topic
  *

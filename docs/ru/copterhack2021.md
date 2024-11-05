@@ -19,7 +19,7 @@ CopterHack 2021 – это командный конкурс по разраб�
 
 |Место|Команда|Проект|Балл|
 |-|-|-|-|
-|1|🇧🇾 FTL|[AdvancedClover](advanced_clover.md)|18.8|
+|1|🇧🇾 FTL|[AdvancedDrone](advanced_drone.md)|18.8|
 |2|🇷🇺 EasyToFly|[EasyToFly](easytofly.md)|18.5|
 |3|🇩🇪 ADDI|[3D-printed generative design frame](../en/generative_design_frame.html)|17.8|
 |4|🇰🇬 AT Makers|[Граффити-коптер D-drone](ddrone.md)|16.7|

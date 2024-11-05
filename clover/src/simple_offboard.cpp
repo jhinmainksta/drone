@@ -41,23 +41,23 @@
 #include <mavros_msgs/ManualControl.h>
 #include <mavros_msgs/Altitude.h>
 
-#include <clover/GetTelemetry.h>
-#include <clover/Navigate.h>
-#include <clover/NavigateGlobal.h>
-#include <clover/SetAltitude.h>
-#include <clover/SetYaw.h>
-#include <clover/SetYawRate.h>
-#include <clover/SetPosition.h>
-#include <clover/SetVelocity.h>
-#include <clover/SetAttitude.h>
-#include <clover/SetRates.h>
-#include <clover/State.h>
+#include <drone/GetTelemetry.h>
+#include <drone/Navigate.h>
+#include <drone/NavigateGlobal.h>
+#include <drone/SetAltitude.h>
+#include <drone/SetYaw.h>
+#include <drone/SetYawRate.h>
+#include <drone/SetPosition.h>
+#include <drone/SetVelocity.h>
+#include <drone/SetAttitude.h>
+#include <drone/SetRates.h>
+#include <drone/State.h>
 
 using std::string;
 using std::isnan;
 using namespace geometry_msgs;
 using namespace sensor_msgs;
-using namespace clover;
+using namespace drone;
 using mavros_msgs::PositionTarget;
 using mavros_msgs::AttitudeTarget;
 using mavros_msgs::Thrust;
@@ -646,12 +646,12 @@ inline void checkState()
 		throw std::runtime_error("State timeout, check mavros settings");
 
 	if (!state.connected)
-		throw std::runtime_error("No connection to FCU, https://clover.coex.tech/connection");
+		throw std::runtime_error("No connection to FCU, https://drone.coex.tech/connection");
 }
 
 void publishState()
 {
-	clover::State msg;
+	drone::State msg;
 	msg.mode = setpoint_type;
 	msg.yaw_mode = setpoint_yaw_type;
 
@@ -1171,7 +1171,7 @@ int main(int argc, char **argv)
 	thrust_pub = nh.advertise<Thrust>(mavros + "/setpoint_attitude/thrust", 1);
 
 	// State publisher
-	state_pub = nh_priv.advertise<clover::State>("state", 1, true);
+	state_pub = nh_priv.advertise<drone::State>("state", 1, true);
 
 	 // Service servers
 	auto gt_serv = nh.advertiseService("get_telemetry", &getTelemetry);

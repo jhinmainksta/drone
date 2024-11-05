@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<robot name="clover" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="drone" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:arg name="main_camera" default="true"/>
   <xacro:arg name="rangefinder" default="true"/>
   <xacro:arg name="led" default="true"/>
   <xacro:arg name="gps" default="true"/>
   <xacro:arg name="maintain_camera_rate" default="false"/>
-  <xacro:arg name="use_clover_physics" default="false"/>
+  <xacro:arg name="use_drone_physics" default="false"/>
 
-  <xacro:include filename="clover4_base.xacro" />
+  <xacro:include filename="drone4_base.xacro" />
   <xacro:include filename="../sensors/rpi_cam.urdf.xacro"/>
   <xacro:include filename="../sensors/distance_sensor.urdf.xacro"/>
   <xacro:include filename="../leds/led_strip.xacro"/>

@@ -8,13 +8,13 @@ The repository is already addedd in [RPi image](image.md) and may be used for si
 
 ## Packages publishing
 
-You can make a Pull Request in a [git repository with packages](https://github.com/CopterExpress/packages), adding or updating your package (a file with `.deb` extension), that relates to Clover or ROS. After merging your package will be available for installation with `apt` utility:
+You can make a Pull Request in a [git repository with packages](https://github.com/CopterExpress/packages), adding or updating your package (a file with `.deb` extension), that relates to Drone or ROS. After merging your package will be available for installation with `apt` utility:
 
 ```bash
-sudo apt install ros-noetic-clover-some-feature
+sudo apt install ros-noetic-drone-some-feature
 ```
 
-Packages, that extend Clover functionality are recommended to be named with `clover_` prefix, e. g. `clover_some_feature`.
+Packages, that extend Drone functionality are recommended to be named with `drone_` prefix, e. g. `drone_some_feature`.
 
 ## Using on a normal Raspberry Pi OS
 

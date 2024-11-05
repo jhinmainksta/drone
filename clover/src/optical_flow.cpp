@@ -29,7 +29,7 @@
 #include <geometry_msgs/Vector3Stamped.h>
 #include <geometry_msgs/PointStamped.h>
 #include <geometry_msgs/TwistStamped.h>
-#include <clover/FlowConfig.h>
+#include <drone/FlowConfig.h>
 
 using cv::Mat;
 
@@ -61,7 +61,7 @@ private:
 	bool disable_on_vpe_;
 	ros::Subscriber vpe_sub_;
 	ros::Time last_vpe_time_;
-	std::shared_ptr<dynamic_reconfigure::Server<clover::FlowConfig>> dyn_srv_;
+	std::shared_ptr<dynamic_reconfigure::Server<drone::FlowConfig>> dyn_srv_;
 
 	void onInit()
 	{
@@ -96,8 +96,8 @@ private:
 			vpe_sub_ = nh.subscribe("mavros/vision_pose/pose", 1, &OpticalFlow::vpeCallback, this);
 		}
 
-		dyn_srv_ = std::make_shared<dynamic_reconfigure::Server<clover::FlowConfig>>(nh_priv);
-		dynamic_reconfigure::Server<clover::FlowConfig>::CallbackType cb;
+		dyn_srv_ = std::make_shared<dynamic_reconfigure::Server<drone::FlowConfig>>(nh_priv);
+		dynamic_reconfigure::Server<drone::FlowConfig>::CallbackType cb;
 
 		cb = std::bind(&OpticalFlow::paramCallback, this, std::placeholders::_1, std::placeholders::_2);
 		dyn_srv_->setCallback(cb);
@@ -292,7 +292,7 @@ publish_debug:
 		return flow;
 	}
 
-	void paramCallback(clover::FlowConfig &config, uint32_t level)
+	void paramCallback(drone::FlowConfig &config, uint32_t level)
 	{
 		enabled_ = config.enabled;
 		if (!enabled_) {

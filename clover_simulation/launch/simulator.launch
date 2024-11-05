@@ -1,14 +1,14 @@
 <launch>
-    <arg name="type" default="gazebo"/> <!-- gazebo, jmavsim, none (only clover packages) -->
+    <arg name="type" default="gazebo"/> <!-- gazebo, jmavsim, none (only drone packages) -->
     <arg name="mav_id" default="0"/>
     <arg name="est" default="ekf2"/> <!-- PX4 estimator: lpe, ekf2 -->
-    <arg name="vehicle" default="clover"/> <!-- PX4 vehicle configuration: clover, clover_vpe -->
+    <arg name="vehicle" default="drone"/> <!-- PX4 vehicle configuration: drone, drone_vpe -->
     <arg name="main_camera" default="true"/> <!-- Simulated vision position estimation camera (optical flow, ArUco) -->
     <arg name="maintain_camera_rate" default="false"/> <!-- Slow simulation down to maintain camera rate -->
     <arg name="rangefinder" default="true"/> <!-- Simulated downward-facing rangefinder, vl53l1x-like -->
     <arg name="led" default="true"/> <!-- Simulated LED strip, ws281x-like -->
     <arg name="gps" default="false"/> <!--Simulated GPS module -->
-    <arg name="use_clover_physics" default="false"/> <!-- Use inertial parameters from CAD models -->
+    <arg name="use_drone_physics" default="false"/> <!-- Use inertial parameters from CAD models -->
     <arg name="gui" default="true"/> <!-- Run Gazebo with GUI -->
 
     <!-- Gazebo instance -->
@@ -16,7 +16,7 @@
         <!-- Workaround for crashes in VMware -->
         <env name="SVGA_VGPU10" value="0"/>
         <arg name="gui" value="$(arg gui)"/>
-        <arg name="world_name" value="$(find clover_simulation)/resources/worlds/clover_aruco.world"/>
+        <arg name="world_name" value="$(find drone_simulation)/resources/worlds/drone_aruco.world"/>
         <arg name="verbose" value="true"/>
     </include>
 
@@ -26,14 +26,14 @@
         <env name="PX4_ESTIMATOR" value="$(arg est)"/>
     </node>
 
-    <!-- Clover model -->
-    <include file="$(find clover_description)/launch/spawn_drone.launch" if="$(eval type == 'gazebo')">
+    <!-- Drone model -->
+    <include file="$(find drone_description)/launch/spawn_drone.launch" if="$(eval type == 'gazebo')">
         <arg name="main_camera" value="$(arg main_camera)"/>
         <arg name="maintain_camera_rate" value="$(arg maintain_camera_rate)"/>
         <arg name="rangefinder" value="$(arg rangefinder)"/>
         <arg name="led" value="$(arg led)"/>
         <arg name="gps" value="$(arg gps)"/>
-        <arg name="use_clover_physics" value="$(arg use_clover_physics)"/>
+        <arg name="use_drone_physics" value="$(arg use_drone_physics)"/>
     </include>
 
     <node name="jmavsim" pkg="px4" required="true" type="jmavsim_run.sh" output="screen" if="$(eval type == 'jmavsim')">
@@ -42,8 +42,8 @@
 
     <param name="use_sim_time" value="false" if="$(eval type == 'jmavsim')"/>
 
-    <!-- Clover services -->
-    <include file="$(find clover)/launch/clover.launch">
+    <!-- Drone services -->
+    <include file="$(find drone)/launch/drone.launch">
         <arg name="simulator" value="true"/>
         <arg name="fcu_conn" value="sitl"/>
         <arg name="fcu_ip" value="127.0.0.1"/>
