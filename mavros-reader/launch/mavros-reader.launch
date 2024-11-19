@@ -1,0 +1,27 @@
+
+<launch>
+    <arg name="fcu_conn" default="uart"/> 
+    <arg name="fcu_ip" default="127.0.0.1"/>
+    <arg name="fcu_sys_id" default="1"/>
+    <arg name="gcs_bridge" default="tcp"/>
+    <arg name="rosbridge" default="true"/> 
+    <arg name="rc" default="false"/>
+    
+    <!-- mavros -->
+    <include file="$(find mavros-reader)/launch/mavros.launch">
+        <arg name="fcu_conn" value="$(arg fcu_conn)"/>
+        <arg name="fcu_ip" value="$(arg fcu_ip)"/>
+        <arg name="fcu_sys_id" value="$(arg fcu_sys_id)"/>
+        <arg name="gcs_bridge" value="$(arg gcs_bridge)"/>
+    </include>
+
+    <!-- rosbridge -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" if="$(eval rosbridge or rc)"/>
+    
+    <!-- rc backend -->
+    <node name="rc" pkg="drone" type="rc" output="screen" if="$(arg rc)" clear_params="true">
+        <!-- Send fake GCS heartbeats. Set to "true" for upstream PX4 -->
+        <param name="use_fake_gcs" value="false"/>
+    </node>
+
+</launch>

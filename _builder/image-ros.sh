@@ -90,11 +90,15 @@ echo_stamp "Installing OpenCV 4.2-compatible ROS packages"
 apt install -y --no-install-recommends \
 ros-${ROS_DISTRO}-compressed-image-transport=1.14.0-0buster \
 ros-${ROS_DISTRO}-cv-bridge=1.15.0-0buster \
-ros-${ROS_DISTRO}-image-publisher=1.15.3-0buster
+ros-${ROS_DISTRO}-cv-camera=0.5.1-0buster \
+ros-${ROS_DISTRO}-image-publisher=1.15.3-0buster \
+ros-${ROS_DISTRO}-web-video-server=0.2.1-0buster
 apt-mark hold \
 ros-${ROS_DISTRO}-compressed-image-transport \
 ros-${ROS_DISTRO}-cv-bridge \
-ros-${ROS_DISTRO}-image-publisher
+ros-${ROS_DISTRO}-cv-camera \
+ros-${ROS_DISTRO}-image-publisher \
+ros-${ROS_DISTRO}-web-video-server
 
 echo_stamp "Installing libboost-dev" # https://travis-ci.org/github/CopterExpress/clover/jobs/766318908#L6536
 my_travis_retry apt-get install -y --no-install-recommends libboost-dev libboost-all-dev
@@ -105,13 +109,25 @@ cd /home/pi/catkin_ws
 my_travis_retry rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} --os=debian:buster \
   --skip-keys=gazebo_ros --skip-keys=gazebo_plugins
 my_travis_retry pip3 install wheel
-# my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/drone/requirements.txt
+my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/drone/requirements.txt
 source /opt/ros/${ROS_DISTRO}/setup.bash
 # Don't build simulation plugins for actual drone
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
-touch mavros-reader/www/CATKIN_IGNORE # ignore documentation files by catkin
+echo_stamp "Install clever package (for backwards compatibility)"
+cd /home/pi/catkin_ws/src/drone/builder/assets/clever
+./setup.py install
+rm -rf build  # remove build artifacts
+
+echo_stamp "Build Drone documentation"
+cd /home/pi/catkin_ws/src/drone
+builder/assets/install_gitbook.sh
+gitbook install
+gitbook build
+# replace assets copy to assets symlink to save space
+rm -rf _book/assets && ln -s ../docs/assets _book/assets
+touch node_modules/CATKIN_IGNORE docs/CATKIN_IGNORE _book/CATKIN_IGNORE drone/www/CATKIN_IGNORE apps/CATKIN_IGNORE # ignore documentation files by catkin
 
 echo_stamp "Installing additional ROS packages"
 my_travis_retry apt-get install -y --no-install-recommends \
@@ -141,17 +157,21 @@ echo_stamp "Change permissions for catkin_ws"
 chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
-sudo -u pi sh -c ". devel/setup.sh && rosrun mavros-reader www"
+sudo -u pi sh -c ". devel/setup.sh && rosrun drone www"
+
+echo_stamp "Make \$HOME/examples symlink"
+ln -s "$(catkin_find drone examples --first-only)" /home/pi
+chown -Rf pi:pi /home/pi/examples
 
 echo_stamp "Make systemd services symlinks"
-ln -s /home/pi/catkin_ws/src/drone/builder/assets/mavros-reader.service /lib/systemd/system/
+ln -s /home/pi/catkin_ws/src/drone/builder/assets/drone.service /lib/systemd/system/
 ln -s /home/pi/catkin_ws/src/drone/builder/assets/roscore.service /lib/systemd/system/
 # validate
-[ -f /lib/systemd/system/mavros-reader.service ]
+[ -f /lib/systemd/system/drone.service ]
 [ -f /lib/systemd/system/roscore.service ]
 
-# echo_stamp "Make udev rules symlink"
-# ln -s "$(catkin_find drone udev --first-only)"/* /lib/udev/rules.d/
+echo_stamp "Make udev rules symlink"
+ln -s "$(catkin_find drone udev --first-only)"/* /lib/udev/rules.d/
 
 echo_stamp "Setup ROS environment"
 cat << EOF >> /home/pi/.bashrc

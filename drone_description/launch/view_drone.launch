@@ -1,7 +1,0 @@
-<launch>
-  <arg name="model" default="$(find drone_description)/urdf/drone/drone4.xacro"/>
-
-  <param name="robot_description" command="xacro $(arg model)"/>
-
-  <node name="rviz" pkg="rviz" type="rviz" required="true"/>
-</launch>

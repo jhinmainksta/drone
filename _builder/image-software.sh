@@ -134,18 +134,18 @@ echo_stamp "Make sure both pip and pip3 are installed"
 pip --version
 pip3 --version
 
-# echo_stamp "Install and enable Butterfly (web terminal)"
-# echo_stamp "Workaround for tornado >= 6.0 breaking butterfly"
+echo_stamp "Install and enable Butterfly (web terminal)"
+echo_stamp "Workaround for tornado >= 6.0 breaking butterfly"
 export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 my_travis_retry pip3 install cryptography==3.4.6 # https://stackoverflow.com/a/68472128/6850197
-# my_travis_retry pip3 install pyOpenSSL==20.0.1
-# my_travis_retry pip3 install tornado==5.1.1
-# my_travis_retry pip3 install butterfly
-# my_travis_retry pip3 install butterfly[systemd]
-# systemctl enable butterfly.socket
+my_travis_retry pip3 install pyOpenSSL==20.0.1
+my_travis_retry pip3 install tornado==5.1.1
+my_travis_retry pip3 install butterfly
+my_travis_retry pip3 install butterfly[systemd]
+systemctl enable butterfly.socket
 
-# echo_stamp "Install ws281x library"
-# my_travis_retry pip3 install --prefer-binary rpi_ws281x
+echo_stamp "Install ws281x library"
+my_travis_retry pip3 install --prefer-binary rpi_ws281x
 
 echo_stamp "Setup Monkey"
 mv /etc/monkey/sites/default /etc/monkey/sites/default.orig
@@ -153,21 +153,21 @@ mv /root/monkey /etc/monkey/sites/default
 sed -i 's/SymLink Off/SymLink On/' /etc/monkey/monkey.conf
 systemctl enable monkey.service
 
-# echo_stamp "Install Node.js"
-# cd /home/pi
-# wget --no-verbose https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.gz
-# tar -xzf node-v10.15.0-linux-armv6l.tar.gz
-# cp -R node-v10.15.0-linux-armv6l/* /usr/local/
-# rm -rf node-v10.15.0-linux-armv6l/
-# rm node-v10.15.0-linux-armv6l.tar.gz
+echo_stamp "Install Node.js"
+cd /home/pi
+wget --no-verbose https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.gz
+tar -xzf node-v10.15.0-linux-armv6l.tar.gz
+cp -R node-v10.15.0-linux-armv6l/* /usr/local/
+rm -rf node-v10.15.0-linux-armv6l/
+rm node-v10.15.0-linux-armv6l.tar.gz
 
-# echo_stamp "Installing ptvsd"
-# my_travis_retry pip install ptvsd
-# my_travis_retry pip3 install ptvsd
+echo_stamp "Installing ptvsd"
+my_travis_retry pip install ptvsd
+my_travis_retry pip3 install ptvsd
 
-# echo_stamp "Installing pyzbar"
-# my_travis_retry pip install pyzbar
-# my_travis_retry pip3 install pyzbar
+echo_stamp "Installing pyzbar"
+my_travis_retry pip install pyzbar
+my_travis_retry pip3 install pyzbar
 
 echo_stamp "Add .vimrc"
 cat << EOF > /home/pi/.vimrc

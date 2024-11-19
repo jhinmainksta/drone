@@ -64,7 +64,7 @@ sed -i 's/127\.0\.1\.1.*/127.0.1.1\t'${NEW_HOSTNAME}' '${NEW_HOSTNAME}'.local/g'
 
 echo_stamp "Enable ROS services"
 systemctl enable roscore
-systemctl enable mavros-reader
+systemctl enable drone
 
 echo_stamp "Harware setup"
 /root/hardware_setup.sh
