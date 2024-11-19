@@ -658,9 +658,6 @@ image_rotate:
 tf2_kdl:
   debian:
     buster: [ros-noetic-tf2-kdl]
-tf2_web_republisher:
-  debian:
-    buster: [ros-noetic-tf2-web-republisher]
 tf_conversions:
   debian:
     buster: [ros-noetic-tf-conversions]

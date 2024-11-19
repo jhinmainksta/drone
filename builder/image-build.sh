@@ -43,9 +43,9 @@ echo_stamp() {
 }
 
 BUILDER_DIR="/builder"
-REPO_DIR="${BUILDER_DIR}/repo"
-SCRIPTS_DIR="${REPO_DIR}/builder"
-IMAGES_DIR="${REPO_DIR}/images"
+REPO_DIR="${BUILDER_DIR}/repo"    # /builder/repo
+SCRIPTS_DIR="${REPO_DIR}/builder" # /builder/repo/builder
+IMAGES_DIR="${REPO_DIR}/images"   # /builder/repo/images
 
 [[ ! -d ${SCRIPTS_DIR} ]] && (echo_stamp "Directory ${SCRIPTS_DIR} doesn't exist" "ERROR"; exit 1)
 [[ ! -d ${IMAGES_DIR} ]] && mkdir ${IMAGES_DIR} && echo_stamp "Directory ${IMAGES_DIR} was created successful" "SUCCESS"

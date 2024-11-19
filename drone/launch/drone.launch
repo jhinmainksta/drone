@@ -59,7 +59,7 @@
         <arg name="simulator" value="$(arg simulator)"/>
     </include>
 
-    <!-- rosbridge -->
+    <!-- rosbridge -->  
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" if="$(eval rosbridge or rc)"/>
 
     <!-- tf2 republisher for web visualization -->
@@ -84,7 +84,7 @@
     <node name="drone_blocks" pkg="drone_blocks" type="drone_blocks" output="screen" if="$(arg blocks)"/>
 
     <!-- rc backend -->
-    <node name="rc" pkg="drone" type="rc" output="screen" if="$(arg rc)" clear_params="true">
+    <node name="rc" pkg="drone" type="rc" output="screen" if="$(`arg rc)" clear_params="true">
         <!-- Send fake GCS heartbeats. Set to "true" for upstream PX4 -->
         <param name="use_fake_gcs" value="false"/>
     </node>
