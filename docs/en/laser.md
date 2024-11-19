@@ -1,6 +1,6 @@
 # Working with a laser rangefinder
 
-> **Note** Documentation for the [image](image.md), versions, starting with **0.20**. For older versions refer to [documentation for version **0.19**](https://github.com/CopterExpress/drone/blob/v0.19/docs/en/laser.md).
+> **Note** Documentation for the [image](image.md), versions, starting with **0.20**. For older versions refer to [documentation for version **0.19**](https://github.com/CopterExpress/clover/blob/v0.19/docs/en/laser.md).
 
 ## VL53L1X Rangefinder
 

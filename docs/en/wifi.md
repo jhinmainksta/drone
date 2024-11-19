@@ -1,7 +1,7 @@
 Connecting to Drone via Wi-Fi
 ===
 
-> **Note** The following applies to [image version](image.md) **0.20** and up. See [previous version of the article](https://github.com/CopterExpress/drone/blob/v0.19/docs/en/wifi.md) for older images.
+> **Note** The following applies to [image version](image.md) **0.20** and up. See [previous version of the article](https://github.com/CopterExpress/clover/blob/v0.19/docs/en/wifi.md) for older images.
 
 [RPi image](image.md) provides a pre-configured Wi-Fi access point with SSID `drone-xxxx`, where `xxxx` are four random numbers that are assigned when your Raspberry Pi is run for the first time.
 

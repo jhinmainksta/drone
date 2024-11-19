@@ -1,6 +1,6 @@
 # Map-based navigation with ArUco markers
 
-> **Note** The following applies to [image versions](image.md) **0.22** and up. Older documentation is still available for [for version **0.20**](https://github.com/CopterExpress/drone/blob/v0.20/docs/en/aruco_map.md).
+> **Note** The following applies to [image versions](image.md) **0.22** and up. Older documentation is still available for [for version **0.20**](https://github.com/CopterExpress/clover/blob/v0.20/docs/en/aruco_map.md).
 
 <!-- -->
 
@@ -49,7 +49,7 @@ Map files are located at the `~/catkin_ws/src/drone/aruco_pose/map` directory. M
 <arg name="map" default="map.txt"/>
 ```
 
-Some map examples are provided in [the directory](https://github.com/CopterExpress/drone/tree/master/aruco_pose/map).
+Some map examples are provided in [the directory](https://github.com/CopterExpress/clover/tree/master/aruco_pose/map).
 
 Grid maps may be generated using the `genmap.py` script:
 

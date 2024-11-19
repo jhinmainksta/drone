@@ -110,7 +110,7 @@ cd ~/catkin_ws
 catkin_make
 ```
 
-> **Hint** You may also want to add udev rules for PX4 flight controllers. Copy [the rules file](https://github.com/CopterExpress/drone/blob/master/drone/udev/99-px4fmu.rules) to `/etc/udev/rules.d` and run `sudo udevadm control --reload-rules && sudo udevadm trigger`.
+> **Hint** You may also want to add udev rules for PX4 flight controllers. Copy [the rules file](https://github.com/CopterExpress/clover/blob/master/drone/udev/99-px4fmu.rules) to `/etc/udev/rules.d` and run `sudo udevadm control --reload-rules && sudo udevadm trigger`.
 
 ### Running Drone nodes
 
@@ -127,7 +127,7 @@ Configure the launch files to your taste and use `roslaunch` to launch the nodes
 roslaunch drone drone.launch
 ```
 
-> **Hint** You may want to start the Drone nodes automatically. This can be done with `systemd`: look at service files for [`roscore`](https://github.com/CopterExpress/drone/blob/master/builder/assets/roscore.service) and [`drone`](https://github.com/CopterExpress/drone/blob/master/builder/assets/drone.service) that are used in our image and adjust them as necessary.
+> **Hint** You may want to start the Drone nodes automatically. This can be done with `systemd`: look at service files for [`roscore`](https://github.com/CopterExpress/clover/blob/master/builder/assets/roscore.service) and [`drone`](https://github.com/CopterExpress/clover/blob/master/builder/assets/drone.service) that are used in our image and adjust them as necessary.
 
 ## Caveats
 

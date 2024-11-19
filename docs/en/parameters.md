@@ -63,7 +63,7 @@ In case of using EKF2 (official firmware):
 
 <!-- markdownlint-enable MD031 -->
 
-> **Info** See also: list of default parameters of the [Drone simulator](simulation.md): https://github.com/CopterExpress/drone/blob/master/drone_simulation/airframes/4500_drone.
+> **Info** See also: list of default parameters of the [Drone simulator](simulation.md): https://github.com/CopterExpress/clover/blob/master/drone_simulation/airframes/4500_drone.
 
 ## Additional information
 

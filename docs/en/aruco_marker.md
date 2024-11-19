@@ -1,6 +1,6 @@
 # ArUco marker detection
 
-> **Note** The following applies to [image versions](image.md) **0.22** and up. Older documentation is still available for [for version **0.20**](https://github.com/CopterExpress/drone/blob/v0.20/docs/en/aruco_marker.md).
+> **Note** The following applies to [image versions](image.md) **0.22** and up. Older documentation is still available for [for version **0.20**](https://github.com/CopterExpress/clover/blob/v0.20/docs/en/aruco_marker.md).
 
 <!-- -->
 

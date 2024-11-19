@@ -25,9 +25,9 @@ Final of the CopterHack 2022 was held on May 27, 2023. The winner team was the t
 |5|🇷🇺 C305|[Система радио-навигации](../ru/nav-beacon.html)|17.5|
 |6|🇮🇳 DJS PHOENIX|[Autonomous Racing Drone](djs_phoenix_chetak.md)|14.6|
 |7|🇷🇺 Lyceum №128|[Network of Drone charging stations](liceu128.md)|13.7|
-|✕|🇰🇬 Zavarka|[Система обмена грузами с помощью конвейера](https://github.com/aiurobotics/drone/blob/conveyance/docs/ru/conveyance.md)||
+|✕|🇰🇬 Zavarka|[Система обмена грузами с помощью конвейера](https://github.com/aiurobotics/clover/blob/conveyance/docs/ru/conveyance.md)||
 |✕|🇷🇺 FSOTM|[Drone Interceptor](https://github.com/deadln/drone/blob/interceptor/docs/ru/interceptor.md)||
-|✕|🇰🇬 Homelesses|[Trash Collector](https://github.com/Isa-jesus/drone/blob/trash-collector/docs/ru/show_maker.md)||
+|✕|🇰🇬 Homelesses|[Trash Collector](https://github.com/Isa-jesus/clover/blob/trash-collector/docs/ru/show_maker.md)||
 |✕|🇷🇺 Digital otters|[Digital otters](https://github.com/Mentalsupernova/drone_cool/blob/new-article.md/docs/ru/new-article.md)||
 |✕|🇷🇺 Light Flight|[Сопровождение БПЛА при посадке](https://github.com/SirSerow/drone_inertial_ns/blob/inertial-1/Description.md)||
 |✕|🇰🇬 LiveSavers|[LiveSavers](https://github.com/Sarvar00/drone/blob/livesavers/docs/ru/livesaver.md)||

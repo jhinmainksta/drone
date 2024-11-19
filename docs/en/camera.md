@@ -1,6 +1,6 @@
 # Working with the camera
 
-> **Note** The following applies to the [image version **0.24**](https://github.com/CopterExpress/drone/releases/tag/v0.24), which is not yet released. Older documentation is still available for [for version **0.23**](https://github.com/CopterExpress/drone/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/en/camera.md).
+> **Note** The following applies to the [image version **0.24**](https://github.com/CopterExpress/clover/releases/tag/v0.24), which is not yet released. Older documentation is still available for [for version **0.23**](https://github.com/CopterExpress/clover/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/en/camera.md).
 
 Make sure the camera is enabled in the `~/catkin_ws/src/drone/drone/launch/drone.launch` file:
 

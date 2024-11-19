@@ -1,6 +1,6 @@
 # Работа с камерой
 
-> **Note** Эта статья описывает работу с [образом версии **0.24**](https://github.com/CopterExpress/drone/releases/tag/v0.24), который пока находится в стадии тестирования. Для версии **0.23** доступна [более старая документация](https://github.com/CopterExpress/drone/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/ru/camera.md).
+> **Note** Эта статья описывает работу с [образом версии **0.24**](https://github.com/CopterExpress/clover/releases/tag/v0.24), который пока находится в стадии тестирования. Для версии **0.23** доступна [более старая документация](https://github.com/CopterExpress/clover/blob/f78a03ec8943b596d5a99b893188a159d5319888/docs/ru/camera.md).
 
 <!-- TODO: физическое подключение -->
 

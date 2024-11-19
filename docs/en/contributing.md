@@ -22,7 +22,7 @@ For a local build of a static documentation website, use the [`gitbook-cli`](htt
 
 If you have found an error in the documentation or if you want to improve it, use the **Pull Request** mechanism.
 
-1. Find a file with the article you want in the repository – https://github.com/CopterExpress/drone/tree/master/docs.
+1. Find a file with the article you want in the repository – https://github.com/CopterExpress/clover/tree/master/docs.
 2. Click "Edit".
 
     <img src="../assets/github-edit.png" alt="GitHub Edit">

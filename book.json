@@ -29,7 +29,7 @@
             "blank": true
         },
         "sitemap": {
-            "hostname": "https://drone.coex.tech"
+            "hostname": "https://clover.coex.tech"
         },
         "toolbar": {
             "buttons":
@@ -38,13 +38,13 @@
                     "label": "Edit page on github",
                     "icon": "fa fa-pencil-square-o",
                     "position" : "left",
-                    "url": "https://github.com/CopterExpress/drone/edit/master/docs/{{filepath_lang}}"
+                    "url": "https://github.com/CopterExpress/clover/edit/master/docs/{{filepath_lang}}"
                 },
                 {
                     "label": "GitHub",
                     "icon": "fa fa-github",
                     "position" : "left",
-                    "url": "https://github.com/CopterExpress/drone"
+                    "url": "https://github.com/CopterExpress/clover"
                 }
             ]
         },

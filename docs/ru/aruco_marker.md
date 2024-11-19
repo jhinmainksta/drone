@@ -1,6 +1,6 @@
 # Распознавание ArUco-маркеров
 
-> **Note** Документация для версий [образа](image.md), начиная с версии **0.22**. Для более ранних версий см. [документацию для версии **0.20**](https://github.com/CopterExpress/drone/blob/v0.20/docs/ru/aruco_marker.md).
+> **Note** Документация для версий [образа](image.md), начиная с версии **0.22**. Для более ранних версий см. [документацию для версии **0.20**](https://github.com/CopterExpress/clover/blob/v0.20/docs/ru/aruco_marker.md).
 
 <!-- -->
 

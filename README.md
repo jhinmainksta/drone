@@ -6,9 +6,9 @@ Drone is an open source [ROS](https://www.ros.org)-based framework, providing us
 
 COEX Drone Drone is an educational programmable drone kit, suited perfectly for running drone software. The kit is shipped unassembled and includes Pixracer-compatible autopilot running PX4 firmware, Raspberry Pi 4 as a companion computer, a camera for computer vision navigation as well as additional sensors and peripheral devices. Batteries included.
 
-The main documentation is available at [https://drone.coex.tech](https://drone.coex.tech/). Official website: [coex.tech/drone](https://coex.tech/drone).
+The main documentation is available at [https://clover.coex.tech](https://clover.coex.tech/). Official website: [coex.tech/clover](https://coex.tech/clover).
 
-[__Support us on Kickstarter!__](https://www.kickstarter.com/projects/copterexpress/dronedrone)
+[__Support us on Kickstarter!__](https://www.kickstarter.com/projects/copterexpress/cloverclover)
 
 ## Video compilation
 
@@ -18,10 +18,10 @@ Drone drone is used on a wide range of educational events, including [Copter Hac
 
 ## Raspberry Pi image
 
-Preconfigured image for Raspberry Pi with installed and configured software, ready to fly, is available [in the Releases section](https://github.com/CopterExpress/drone/releases).
+Preconfigured image for Raspberry Pi with installed and configured software, ready to fly, is available [in the Releases section](https://github.com/CopterExpress/clover/releases).
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CopterExpress/drone/build-image.yaml?branch=master)
-![GitHub all releases](https://img.shields.io/github/downloads/CopterExpress/drone/total)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CopterExpress/clover/build-image.yaml?branch=master)
+![GitHub all releases](https://img.shields.io/github/downloads/CopterExpress/clover/total)
 
 Image features:
 
@@ -30,11 +30,11 @@ Image features:
 * Configured networking
 * OpenCV
 * [`mavros`](http://wiki.ros.org/mavros)
-* Periphery drivers for ROS ([GPIO](https://drone.coex.tech/en/gpio.html), [LED strip](https://drone.coex.tech/en/leds.html), etc)
+* Periphery drivers for ROS ([GPIO](https://clover.coex.tech/en/gpio.html), [LED strip](https://clover.coex.tech/en/leds.html), etc)
 * `aruco_pose` package for marker-assisted navigation
 * `drone` package for autonomous drone control
 
-API description for autonomous flights is available [on GitBook](https://drone.coex.tech/en/simple_offboard.html).
+API description for autonomous flights is available [on GitBook](https://clover.coex.tech/en/simple_offboard.html).
 
 For manual package installation and running see [`drone` package documentation](drone/README.md).
 

@@ -1,6 +1,6 @@
 # Working with a LED strip
 
-> **Note** Documentation for the [image](image.md) versions, starting with **0.21**. For older versions refer to [documentation for version **0.20**](https://github.com/CopterExpress/drone/blob/v0.20/docs/en/leds.md).
+> **Note** Documentation for the [image](image.md) versions, starting with **0.21**. For older versions refer to [documentation for version **0.20**](https://github.com/CopterExpress/clover/blob/v0.20/docs/en/leds.md).
 
 Drone drone kits contain addressable LED strips based on *ws281x* drivers. Each LED may be set to any one of 16 million possible colors (each color is encoded by a 24-bit number). This allows making the Drone flight more spectacular, as well as show flight modes, display stages of current user program, and notify the pilot of other events.
 

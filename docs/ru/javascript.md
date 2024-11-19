@@ -49,6 +49,6 @@
 
 ## Браузерная GCS
 
-Смотрите также пример реализации ([`gcs.html`](https://github.com/CopterExpress/drone/blob/master/drone/www/gcs.html), [`gcs.js`](https://github.com/CopterExpress/drone/blob/master/drone/www/js/gcs.js)) упрощенной браузерной наземной станции (GCS) на Клевере по адресу http://192.168.11.1/drone/gcs.html.
+Смотрите также пример реализации ([`gcs.html`](https://github.com/CopterExpress/clover/blob/master/drone/www/gcs.html), [`gcs.js`](https://github.com/CopterExpress/clover/blob/master/drone/www/js/gcs.js)) упрощенной браузерной наземной станции (GCS) на Клевере по адресу http://192.168.11.1/drone/gcs.html.
 
 <img src="../assets/web-gcs.png" class="center zoom"/>

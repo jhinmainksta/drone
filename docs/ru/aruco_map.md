@@ -1,6 +1,6 @@
 # Навигация по картам ArUco-маркеров
 
-> **Note** Документация для версий [образа](image.md), начиная с версии **0.22**. Для более ранних версий см. [документацию для версии **0.20**](https://github.com/CopterExpress/drone/blob/v0.20/docs/ru/aruco_map.md).
+> **Note** Документация для версий [образа](image.md), начиная с версии **0.22**. Для более ранних версий см. [документацию для версии **0.20**](https://github.com/CopterExpress/clover/blob/v0.20/docs/ru/aruco_map.md).
 
 <!-- -->
 
@@ -49,7 +49,7 @@ id_маркера размер_маркера x y z угол_z угол_y уго
 <arg name="map" default="map.txt"/>
 ```
 
-Смотрите примеры карт маркеров в [`вышеуказанном каталоге`](https://github.com/CopterExpress/drone/tree/master/aruco_pose/map).
+Смотрите примеры карт маркеров в [`вышеуказанном каталоге`](https://github.com/CopterExpress/clover/tree/master/aruco_pose/map).
 
 Файл карты может быть сгенерирован с помощью инструмента `genmap.py`:
 

@@ -63,7 +63,7 @@
 
 <!-- markdownlint-enable MD031 -->
 
-> **Info** См. также: список параметров по умолчанию в [симуляторе](simulation.md): https://github.com/CopterExpress/drone/blob/master/drone_simulation/airframes/4500_drone.
+> **Info** См. также: список параметров по умолчанию в [симуляторе](simulation.md): https://github.com/CopterExpress/clover/blob/master/drone_simulation/airframes/4500_drone.
 
 ## Дополнительная информация
 

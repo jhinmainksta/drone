@@ -1,6 +1,6 @@
 # Drone 4 assembly
 
-Dimensional drawing – [drone-4.2-ws.pdf](https://github.com/CopterExpress/drone/raw/master/docs/assets/dimensional-drawing/drone-4.2-ws.pdf).
+Dimensional drawing – [drone-4.2-ws.pdf](https://github.com/CopterExpress/clover/raw/master/docs/assets/dimensional-drawing/drone-4.2-ws.pdf).
 
 ## Fasteners size
 

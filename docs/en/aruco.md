@@ -19,4 +19,4 @@ There are several preconfigured modes of operation for ArUco markers on the Dron
 * [single marker detection and navigation](aruco_marker.md);
 * [map-based navigation](aruco_map.md).
 
-> **Info** Additional documentation for the `aruco_pose` ROS package is available [on GitHub](https://github.com/CopterExpress/drone/blob/master/aruco_pose/README.md).
+> **Info** Additional documentation for the `aruco_pose` ROS package is available [on GitHub](https://github.com/CopterExpress/clover/blob/master/aruco_pose/README.md).

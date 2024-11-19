@@ -1,6 +1,6 @@
 # Подключение к Клеверу по Wi-Fi
 
-> **Note** Документация для версий [образа](image.md), начиная с **0.20**. Для более ранних версий см. [документацию для версии **0.19**](https://github.com/CopterExpress/drone/blob/v0.19/docs/ru/wifi.md).
+> **Note** Документация для версий [образа](image.md), начиная с **0.20**. Для более ранних версий см. [документацию для версии **0.19**](https://github.com/CopterExpress/clover/blob/v0.19/docs/ru/wifi.md).
 
 На [образе для RPi](image.md) преднастроена раздача Wi-Fi с SSID `drone-xxxx`, где xxxx – 4 случайных цифры, назначаемых при первом включении Raspberry Pi.
 

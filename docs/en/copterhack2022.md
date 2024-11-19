@@ -46,7 +46,7 @@ Final of the CopterHack 2022 was held on April 23, 2022. The winner team was the
 |✕|🇷🇺 Lucky flight|[Swarm of Improved Drone](https://github.com/bessiaka/drone/blob/Lucky-flight/docs/ru/lucky_flight.md)||
 |✕|🇺🇸 EnviroFleet|[EnviroFleet](https://github.com/gueyman/drone/blob/envirofleet/docs/en/enviro_fleet.md)||
 |✕|🇷🇺 Бизнес-гуси|[Drone Rover Climbing System](https://github.com/HexaHEX/drone/blob/CopterHack2022_Business_Geese-1/docs/ru/business_geese.md)||
-|✕|🇷🇺 fuall|[Доставка дронами](https://github.com/Silly4s/drone/blob/master/docs/ru/dostavka.md)||
+|✕|🇷🇺 fuall|[Доставка дронами](https://github.com/Silly4s/clover/blob/master/docs/ru/dostavka.md)||
 |✕|🇷🇺 Scout_Drone|[Создание поисково-спасательного беспилотного летательного аппарата](https://github.com/MustafaNatur/drone/blob/Scout_Drone.md/docs/ru/scout_drone.md)|&nbsp;|
 
 ✕ – teams which haven't qualified for the Final.

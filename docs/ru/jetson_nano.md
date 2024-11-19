@@ -110,7 +110,7 @@ cd ~/catkin_ws
 catkin_make
 ```
 
-> **Hint** При подключении полётных контроллеров на базе PX4 через USB следует также добавить правила udev в систему. Скопируйте [файл с правилами](https://github.com/CopterExpress/drone/blob/master/drone/udev/99-px4fmu.rules) в `/etc/udev/rules.d` и выполните команду `sudo udevadm control --reload-rules && sudo udevadm trigger`.
+> **Hint** При подключении полётных контроллеров на базе PX4 через USB следует также добавить правила udev в систему. Скопируйте [файл с правилами](https://github.com/CopterExpress/clover/blob/master/drone/udev/99-px4fmu.rules) в `/etc/udev/rules.d` и выполните команду `sudo udevadm control --reload-rules && sudo udevadm trigger`.
 
 ### Запуск Клеверных нод
 
@@ -127,7 +127,7 @@ source devel/setup.bash
 roslaunch drone drone.launch
 ```
 
-> **Hint** Вы можете настроить `systemd` так, чтобы ноды Клевера запускались автоматически. Примером такой настройки может служить образ Клевера для Raspberry Pi: там созданы сервисы [`roscore`](https://github.com/CopterExpress/drone/blob/master/builder/assets/roscore.service) и [`drone`](https://github.com/CopterExpress/drone/blob/master/builder/assets/drone.service). Их можно подкорректировать и использовать в Jetson Nano.
+> **Hint** Вы можете настроить `systemd` так, чтобы ноды Клевера запускались автоматически. Примером такой настройки может служить образ Клевера для Raspberry Pi: там созданы сервисы [`roscore`](https://github.com/CopterExpress/clover/blob/master/builder/assets/roscore.service) и [`drone`](https://github.com/CopterExpress/clover/blob/master/builder/assets/drone.service). Их можно подкорректировать и использовать в Jetson Nano.
 
 ## Возможные проблемы
 
