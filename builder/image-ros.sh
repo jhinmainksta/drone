@@ -111,6 +111,7 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
+cd /home/pi/catkin_ws/src/drone
 touch mavros-reader/www/CATKIN_IGNORE # ignore documentation files by catkin
 
 echo_stamp "Installing additional ROS packages"
