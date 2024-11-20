@@ -8,9 +8,9 @@ ExecStart=/bin/bash -c ". /home/pi/catkin_ws/devel/setup.sh; \
                       ROS_HOSTNAME=`hostname`.local exec stdbuf -o L roslaunch mavros-reader mavros-reader.launch --wait --screen --skip-log-check \
                       2> >(tee /tmp/drone.err)"
 
-ExecStartPre=+rm /var/log/drone.log
-StandardOutput=file:/var/log/drone.log
-StandardError=file:/var/log/drone.log
+ExecStartPre=+rm /var/log/mavros-reader.log
+StandardOutput=file:/var/log/mavros-reader.log
+StandardError=file:/var/log/mavros-reader.log
 
 [Install]
 WantedBy=multi-user.target
