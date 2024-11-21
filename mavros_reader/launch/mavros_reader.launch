@@ -8,7 +8,7 @@
     <arg name="rc" default="false"/>
     
     <!-- mavros -->
-    <include file="$(find mavros-reader)/launch/mavros.launch">
+    <include file="$(find mavros_reader)/launch/mavros.launch">
         <arg name="fcu_conn" value="$(arg fcu_conn)"/>
         <arg name="fcu_ip" value="$(arg fcu_ip)"/>
         <arg name="fcu_sys_id" value="$(arg fcu_sys_id)"/>

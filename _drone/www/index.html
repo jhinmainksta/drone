@@ -22,7 +22,7 @@
 	</li>
 	<li>
 		<a href="console.html">Drone console</a>
-		(<code>/var/log/mavros-reader.log</code>)
+		(<code>/var/log/mavros_reader.log</code>)
 	</li>
 </ul>
 
@@ -47,7 +47,7 @@
 	});
 
 	// Determine image version
-	fetch("mavros-reader_version").then(function (response) {
+	fetch("mavros_reader_version").then(function (response) {
 		if (response.status !== 200) return;
 		response.text().then(function (text) {
 			document.querySelector(".version").innerHTML = "Version: " + text;

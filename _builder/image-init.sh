@@ -37,7 +37,7 @@ echo_stamp() {
 echo_stamp "Write Drone information"
 
 # Drone image version
-echo "$1" >> /etc/mavros-reader_version
+echo "$1" >> /etc/mavros_reader_version
 # Origin image file name
 echo "${2%.*}" >> /etc/drone_origin
 

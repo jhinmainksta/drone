@@ -145,7 +145,7 @@ my_travis_retry pip3 install cryptography==3.4.6 # https://stackoverflow.com/a/6
 # systemctl enable butterfly.socket
 
 # echo_stamp "Install ws281x library"
-# my_travis_retry pip3 install --prefer-binary rpi_ws281x
+my_travis_retry pip3 install --prefer-binary rpi_ws281x
 
 echo_stamp "Setup Monkey"
 mv /etc/monkey/sites/default /etc/monkey/sites/default.orig
@@ -154,20 +154,20 @@ sed -i 's/SymLink Off/SymLink On/' /etc/monkey/monkey.conf
 systemctl enable monkey.service
 
 # echo_stamp "Install Node.js"
-# cd /home/pi
-# wget --no-verbose https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.gz
-# tar -xzf node-v10.15.0-linux-armv6l.tar.gz
-# cp -R node-v10.15.0-linux-armv6l/* /usr/local/
-# rm -rf node-v10.15.0-linux-armv6l/
-# rm node-v10.15.0-linux-armv6l.tar.gz
+cd /home/pi
+wget --no-verbose https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.gz
+tar -xzf node-v10.15.0-linux-armv6l.tar.gz
+cp -R node-v10.15.0-linux-armv6l/* /usr/local/
+rm -rf node-v10.15.0-linux-armv6l/
+rm node-v10.15.0-linux-armv6l.tar.gz
 
 # echo_stamp "Installing ptvsd"
-# my_travis_retry pip install ptvsd
-# my_travis_retry pip3 install ptvsd
+my_travis_retry pip install ptvsd
+my_travis_retry pip3 install ptvsd
 
 # echo_stamp "Installing pyzbar"
-# my_travis_retry pip install pyzbar
-# my_travis_retry pip3 install pyzbar
+my_travis_retry pip install pyzbar
+my_travis_retry pip3 install pyzbar
 
 echo_stamp "Add .vimrc"
 cat << EOF > /home/pi/.vimrc

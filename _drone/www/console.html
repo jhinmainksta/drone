@@ -1,8 +1,8 @@
 <h1>
-	/var/log/mavros-reader.log
+	/var/log/mavros_reader.log
 	<a
 		style="font-size: 0.5em; vertical-align: super; font-weight: normal"
-		href="mavros-reader.log"
+		href="mavros_reader.log"
 		download
 		>download</a
 	>
@@ -13,10 +13,10 @@
 <script type="module">
 		var pre = document.querySelector("pre");
 
-		fetch("mavros-reader.log?" + Math.random()).then(function (response) {
+		fetch("mavros_reader.log?" + Math.random()).then(function (response) {
 			// random to forbid caching
 			if (response.status == 404) {
-	mavros-reader			return;
+	mavros_reader			return;
 			} else if (response.status !== 200) {
 				pre.innerHTML("Error " + response.status);
 				return;
