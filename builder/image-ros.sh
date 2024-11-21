@@ -109,7 +109,7 @@ cd /home/pi/catkin_ws
 my_travis_retry rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} --os=debian:buster \
   --skip-keys=gazebo_ros --skip-keys=gazebo_plugins
 my_travis_retry pip3 install wheel
-my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/drone/requirements.txt
+my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/mavros_reader/requirements.txt
 source /opt/ros/${ROS_DISTRO}/setup.bash
 # Don't build simulation plugins for actual drone
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
