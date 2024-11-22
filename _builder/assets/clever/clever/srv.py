@@ -1,3 +1,3 @@
-print("Warning: clever package is renamed to drone")
+print("Warning: clever package is renamed to mavros_reader")
 
-from drone.srv import *
+from mavros_reader.srv import *

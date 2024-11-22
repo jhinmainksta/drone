@@ -115,10 +115,10 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
-cd /home/pi/catkin_ws/src/drone/builder/assets/clever
-sed -i 's/\r$//' setup.py
-sudo ./setup.py install
-rm -rf build
+# cd /home/pi/catkin_ws/src/drone/builder/assets/clever
+# sed -i 's/\r$//' setup.py
+# sudo ./setup.py install
+# rm -rf build
 
 cd /home/pi/catkin_ws/src/drone
 touch mavros_reader/www/CATKIN_IGNORE # ignore documentation files by catkin
