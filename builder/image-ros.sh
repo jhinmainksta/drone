@@ -115,7 +115,10 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
-
+cd /home/pi/catkin_ws/src/drone/builder/assets/clever
+sed -i 's/\r$//' setup.py
+sudo ./setup.py install
+rm -rf build
 
 cd /home/pi/catkin_ws/src/drone
 touch mavros_reader/www/CATKIN_IGNORE # ignore documentation files by catkin
@@ -148,6 +151,7 @@ echo_stamp "Change permissions for catkin_ws"
 chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
+sed -i 's/\r$//' src/drone/mavros_reader/src/www
 sudo -u pi sh -c ". devel/setup.sh && rosrun mavros_reader www"
 
 # echo_stamp "Make \$HOME/examples symlink"
