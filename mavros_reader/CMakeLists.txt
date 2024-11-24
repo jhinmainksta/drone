@@ -10,6 +10,7 @@ project(mavros_reader)
 find_package(catkin REQUIRED COMPONENTS
   mavros
   roslaunch
+  cv_bridge
 )
 
 roslaunch_add_file_check(launch)
@@ -160,7 +161,7 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS src/reader.py
+catkin_install_python(PROGRAMS src/reader.py src/www.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

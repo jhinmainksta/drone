@@ -151,7 +151,9 @@ echo_stamp "Change permissions for catkin_ws"
 chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
-sed -i 's/\r$//' src/drone/mavros_reader/src/www
+sed -i 's/\r$//' src/drone/mavros_reader/src/www.sh
+chmod +x src/drone/mavros_reader/src/www.sh
+
 sudo -u pi sh -c ". devel/setup.sh && rosrun mavros_reader www"
 
 # echo_stamp "Make \$HOME/examples symlink"
