@@ -7,7 +7,7 @@ project(mavros_reader)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
+find_package(catkin REQUIRED COMPONENTS 
   mavros
   roslaunch
   cv_bridge
@@ -124,7 +124,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/mavros_reader.cpp
+#   src/${PROJECT_NAME}
 # )
 
 ## Add cmake target dependencies of the library

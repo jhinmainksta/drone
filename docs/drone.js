@@ -11,7 +11,7 @@ gitbook.events.bind("page.change", function () {
 			let stable;
 			for (let release of data) {
 				let clever =
-					release.name.indexOf("drone") != -1 ||
+					release.name.indexOf("mavros_reader") != -1 ||
 					release.name.indexOf("clever") != -1;
 				if (clever && !release.prerelease && !release.draft) {
 					stable = release;

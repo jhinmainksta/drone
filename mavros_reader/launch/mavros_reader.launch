@@ -1,12 +1,24 @@
-
 <launch>
-    <arg name="fcu_conn" default="uart"/> 
+    <arg name="fcu_conn" default="uart"/>
     <arg name="fcu_ip" default="127.0.0.1"/>
     <arg name="fcu_sys_id" default="1"/>
     <arg name="gcs_bridge" default="tcp"/>
-    <arg name="rosbridge" default="true"/> 
+    <arg name="web_video_server" default="true"/>
+    <arg name="rosbridge" default="true"/>
+    <arg name="main_camera" default="true"/>
+
+
+
+
+
     <arg name="rc" default="false"/>
-    
+
+
+
+
+    <!-- log formatting -->
+    <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${logger}: ${message}"/>
+
     <!-- mavros -->
     <include file="$(find mavros_reader)/launch/mavros.launch">
         <arg name="fcu_conn" value="$(arg fcu_conn)"/>
@@ -15,9 +27,20 @@
         <arg name="gcs_bridge" value="$(arg gcs_bridge)"/>
     </include>
 
+    <!-- web video server -->
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" if="$(arg web_video_server)" required="false" respawn="true" respawn_delay="5">
+        <param name="default_stream_type" value="ros_compressed"/>
+        <param name="publish_rate" value="1.0"/>
+    </node>
+
+    <!-- main camera -->
+    <include file="$(find mavros_reader)/launch/main_camera.launch" if="$(arg main_camera)">
+        <arg name="simulator" value="$(arg simulator)"/>
+    </include>
+
     <!-- rosbridge -->
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" if="$(eval rosbridge or rc)"/>
-    
+
     <!-- rc backend -->
     <node name="rc" pkg="drone" type="rc" output="screen" if="$(arg rc)" clear_params="true">
         <!-- Send fake GCS heartbeats. Set to "true" for upstream PX4 -->
