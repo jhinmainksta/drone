@@ -152,7 +152,7 @@ chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
 sed -i 's/\r$//' src/drone/mavros_reader/src/www
-chmod +x src/drone/mavros_reader/src/www
+chmod -R +x src/drone/mavros_reader/src
 
 sudo -u pi sh -c ". devel/setup.sh && rosrun mavros_reader www"
 
