@@ -127,8 +127,8 @@ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip2.py
 python3 get-pip.py
 python get-pip2.py
 rm get-pip.py get-pip2.py
-#my_travis_retry pip install --upgrade pip
-#my_travis_retry pip3 install --upgrade pip
+my_travis_retry pip install --upgrade pip
+my_travis_retry pip3 install --upgrade pip
 
 echo_stamp "Make sure both pip and pip3 are installed"
 pip --version
@@ -138,11 +138,11 @@ pip3 --version
 # echo_stamp "Workaround for tornado >= 6.0 breaking butterfly"
 export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 my_travis_retry pip3 install cryptography==3.4.6 # https://stackoverflow.com/a/68472128/6850197
-# my_travis_retry pip3 install pyOpenSSL==20.0.1
-# my_travis_retry pip3 install tornado==5.1.1
-# my_travis_retry pip3 install butterfly
-# my_travis_retry pip3 install butterfly[systemd]
-# systemctl enable butterfly.socket
+my_travis_retry pip3 install pyOpenSSL==20.0.1
+my_travis_retry pip3 install tornado==5.1.1
+my_travis_retry pip3 install butterfly
+my_travis_retry pip3 install butterfly[systemd]
+systemctl enable butterfly.socket
 
 # echo_stamp "Install ws281x library"
 my_travis_retry pip3 install --prefer-binary rpi_ws281x

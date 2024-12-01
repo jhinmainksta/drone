@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="js/topics.js" type="module"></script>
-  </head>
-  <body>
-    <p>Sus</p>
-    <p><a href="topics.html">topics</a></p>
-    <ul id="js-topics"></ul>
-  </body>
-<html>
+	<head>
+		<script src="js/topics.js" type="module"></script>
+	</head>
+	<body>
+		<p>Sus</p>
+		<ul>
+			<li><a href="topics.html">topics</a></li>
+			<li>
+				<a href="" id="butterfly">Web terminal</a>(<code>Butterfly</code>)
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		document.querySelector("#butterfly").href =
+			location.protocol + "//" + location.hostname + ":57575";
+	</script>
+</html>
