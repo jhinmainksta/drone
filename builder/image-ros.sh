@@ -109,7 +109,7 @@ cd /home/pi/catkin_ws
 my_travis_retry rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} --os=debian:buster \
   --skip-keys=gazebo_ros --skip-keys=gazebo_plugins
 my_travis_retry pip3 install wheel
-my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/mavros_reader/requirements.txt
+my_travis_retry pip3 install -r /home/pi/catkin_ws/src/drone/drone/requirements.txt
 source /opt/ros/${ROS_DISTRO}/setup.bash
 # Don't build simulation plugins for actual drone
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -121,7 +121,7 @@ source devel/setup.bash
 # rm -rf build
 
 cd /home/pi/catkin_ws/src/drone
-touch mavros_reader/www/CATKIN_IGNORE # ignore documentation files by catkin
+touch drone/www/CATKIN_IGNORE # ignore documentation files by catkin
 
 echo_stamp "Installing additional ROS packages"
 my_travis_retry apt-get install -y --no-install-recommends \
@@ -151,24 +151,24 @@ echo_stamp "Change permissions for catkin_ws"
 chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
-sed -i 's/\r$//' src/drone/mavros_reader/src/www
-chmod -R +x src/drone/mavros_reader/src
+sed -i 's/\r$//' src/drone/drone/src/www
+chmod -R +x src/drone/drone/src
 
-sudo -u pi sh -c ". devel/setup.sh && rosrun mavros_reader www"
+sudo -u pi sh -c ". devel/setup.sh && rosrun drone www"
 
 # echo_stamp "Make \$HOME/examples symlink"
 # ln -s "$(catkin_find clover examples --first-only)" /home/pi
 # chown -Rf pi:pi /home/pi/examples
 
 echo_stamp "Make systemd services symlinks"
-ln -s /home/pi/catkin_ws/src/drone/builder/assets/mavros_reader.service /lib/systemd/system/
+ln -s /home/pi/catkin_ws/src/drone/builder/assets/drone.service /lib/systemd/system/
 ln -s /home/pi/catkin_ws/src/drone/builder/assets/roscore.service /lib/systemd/system/
 # validate
-[ -f /lib/systemd/system/mavros_reader.service ]
+[ -f /lib/systemd/system/drone.service ]
 [ -f /lib/systemd/system/roscore.service ]
 
 echo_stamp "Make udev rules symlink"
-ln -s "$(catkin_find mavros_reader udev --first-only)"/* /lib/udev/rules.d/
+ln -s "$(catkin_find drone udev --first-only)"/* /lib/udev/rules.d/
 
 echo_stamp "Setup ROS environment"
 cat << EOF >> /home/pi/.bashrc

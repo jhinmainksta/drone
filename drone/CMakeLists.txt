@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(mavros_reader)
+project(drone)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,10 +8,31 @@ project(mavros_reader)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS 
-  mavros
-  roslaunch
+  nodelet
+  pluginlib
+  roscpp
+  genmsg
+  rospy
+  std_msgs
+  message_generation
+  geometry_msgs
+  sensor_msgs
+  led_msgs
+  geographic_msgs
+  tf
+  tf2
+  tf2_geometry_msgs
+  tf2_ros
+  image_transport
   cv_bridge
+  dynamic_reconfigure
 )
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+
+# https://github.com/mavlink/mavros/blob/7f1a8/mavros/CMakeLists.txt#L42
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};/usr/share/cmake/geographiclib")
+find_package(GeographicLib REQUIRED)
 
 roslaunch_add_file_check(launch)
 
@@ -49,18 +70,27 @@ roslaunch_add_file_check(launch)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  State.msg
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  GetTelemetry.srv
+  Navigate.srv
+  NavigateGlobal.srv
+  SetAltitude.srv
+  SetYaw.srv
+  SetYawRate.srv
+  SetPosition.srv
+  SetVelocity.srv
+  SetAttitude.srv
+  SetRates.srv
+  SetLEDEffect.srv
+  Execute.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -70,10 +100,10 @@ roslaunch_add_file_check(launch)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -90,10 +120,9 @@ roslaunch_add_file_check(launch)
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+generate_dynamic_reconfigure_options(
+  cfg/Flow.cfg
+)
 
 ###################################
 ## catkin specific configuration ##
@@ -106,7 +135,7 @@ roslaunch_add_file_check(launch)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES mavros_reader
+LIBRARIES drone
 #  CATKIN_DEPENDS mavros
 #  DEPENDS system_lib
 )
@@ -120,12 +149,13 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${GeographicLib_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}
-# )
+add_library(${PROJECT_NAME}
+  src/optical_flow.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -135,7 +165,26 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/mavros_reader_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/drone_node.cpp)
+
+add_executable(shell src/shell.cpp)
+
+add_executable(vpe_publisher src/vpe_publisher.cpp)
+
+target_link_libraries(simple_offboard
+  ${catkin_LIBRARIES}
+  ${GeographicLib_LIBRARIES}
+)
+
+target_link_libraries(vpe_publisher ${catkin_LIBRARIES})
+
+target_link_libraries(shell ${catkin_LIBRARIES})
+
+add_dependencies(simple_offboard ${PROJECT_NAME}_generate_messages_cpp)
+
+add_dependencies(shell ${PROJECT_NAME}_generate_messages_cpp)
+
+add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -148,9 +197,10 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
 
 #############
 ## Install ##
@@ -165,19 +215,12 @@ catkin_install_python(PROGRAMS src/reader.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-## Mark executables for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-# install(TARGETS ${PROJECT_NAME}_node
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark libraries for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
-# install(TARGETS ${PROJECT_NAME}
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
-# )
+# Mark executables and/or libraries for installation
+install(TARGETS simple_offboard vpe_publisher shell drone
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
@@ -193,15 +236,25 @@ catkin_install_python(PROGRAMS src/reader.py
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
 
+catkin_install_python(PROGRAMS src/selfcheck.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 #############
 ## Testing ##
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_mavros_reader.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_drone.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest(test/basic.test)
+  add_rostest(test/offboard.test)
+endif()

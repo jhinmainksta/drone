@@ -7,7 +7,7 @@ def callback(data):
   rospy.loginfo(rospy.get_caller_id() + " armed: %s", data.armed)
 
 def reader():
-  rospy.init_node('mavros_reader')
+  rospy.init_node('drone')
 
   rospy.Subscriber("mavros/state", State, callback)
 

@@ -2,7 +2,7 @@
 import rospy
 import pytest
 from mavros_msgs.msg import State
-from mavros_reader import srv
+from drone import srv
 import time
 
 @pytest.fixture()

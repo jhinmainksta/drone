@@ -5,12 +5,12 @@ Requires=roscore.service
 [Service]
 User=pi
 ExecStart=/bin/bash -c ". /home/pi/catkin_ws/devel/setup.sh; \
-                      ROS_HOSTNAME=`hostname`.local exec stdbuf -o L roslaunch mavros_reader mavros_reader.launch --wait --screen --skip-log-check \
+                      ROS_HOSTNAME=`hostname`.local exec stdbuf -o L roslaunch drone drone.launch --wait --screen --skip-log-check \
                       2> >(tee /tmp/drone.err)"
 
-ExecStartPre=+rm /var/log/mavros_reader.log
-StandardOutput=file:/var/log/mavros_reader.log
-StandardError=file:/var/log/mavros_reader.log
+ExecStartPre=+rm /var/log/drone.log
+StandardOutput=file:/var/log/drone.log
+StandardError=file:/var/log/drone.log
 
 [Install]
 WantedBy=multi-user.target
