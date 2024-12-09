@@ -100,6 +100,11 @@ ros-${ROS_DISTRO}-cv-camera \
 ros-${ROS_DISTRO}-image-publisher \
 ros-${ROS_DISTRO}-web-video-server
 
+my_travis_retry apt-get install -y --no-install-recommends \
+    ros-${ROS_DISTRO}-led-msgs \
+    ros-${ROS_DISTRO}-tf \
+    ros-${ROS_DISTRO}-tf2
+
 echo_stamp "Installing libboost-dev" # https://travis-ci.org/github/CopterExpress/clover/jobs/766318908#L6536
 my_travis_retry apt-get install -y --no-install-recommends libboost-dev libboost-all-dev
 
@@ -146,10 +151,7 @@ my_travis_retry apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-nodelet-topic-tools \
     ros-${ROS_DISTRO}-stereo-msgs \
     ros-${ROS_DISTRO}-vision-msgs \
-    ros-${ROS_DISTRO}-angles \
-    ros-${ROS_DISTRO}-led-msgs \
-    ros-${ROS_DISTRO}-tf \
-    ros-${ROS_DISTRO}-tf2
+    ros-${ROS_DISTRO}-angles
 
 # TODO move GeographicLib datasets to Mavros debian package
 echo_stamp "Install GeographicLib datasets (needed for mavros)" \
