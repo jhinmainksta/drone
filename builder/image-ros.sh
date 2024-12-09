@@ -115,6 +115,7 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
+echo_stamp "Install clever package (for backwards compatibility)"
 cd /home/pi/catkin_ws/src/drone/builder/assets/drone
 chmod +x setup.py
 sudo ./setup.py install
@@ -145,7 +146,10 @@ my_travis_retry apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-nodelet-topic-tools \
     ros-${ROS_DISTRO}-stereo-msgs \
     ros-${ROS_DISTRO}-vision-msgs \
-    ros-${ROS_DISTRO}-angles
+    ros-${ROS_DISTRO}-angles \
+    ros-${ROS_DISTRO}-led-msgs \
+    ros-${ROS_DISTRO}-tf \
+    ros-${ROS_DISTRO}-tf2
 
 # TODO move GeographicLib datasets to Mavros debian package
 echo_stamp "Install GeographicLib datasets (needed for mavros)" \
