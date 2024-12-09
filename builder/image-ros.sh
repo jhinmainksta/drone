@@ -115,10 +115,10 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 catkin_make -j2 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 source devel/setup.bash
 
-# cd /home/pi/catkin_ws/src/drone/builder/assets/clever
-# sed -i 's/\r$//' setup.py
-# sudo ./setup.py install
-# rm -rf build
+cd /home/pi/catkin_ws/src/drone/builder/assets/drone
+chmod +x setup.py
+sudo ./setup.py install
+rm -rf build
 
 cd /home/pi/catkin_ws/src/drone
 touch drone/www/CATKIN_IGNORE # ignore documentation files by catkin
@@ -156,9 +156,9 @@ chmod -R +x src/drone/drone/src
 
 sudo -u pi sh -c ". devel/setup.sh && rosrun drone www"
 
-# echo_stamp "Make \$HOME/examples symlink"
-# ln -s "$(catkin_find clover examples --first-only)" /home/pi
-# chown -Rf pi:pi /home/pi/examples
+echo_stamp "Make \$HOME/examples symlink"
+ln -s "$(catkin_find clover examples --first-only)" /home/pi
+chown -Rf pi:pi /home/pi/examples
 
 echo_stamp "Make systemd services symlinks"
 ln -s /home/pi/catkin_ws/src/drone/builder/assets/drone.service /lib/systemd/system/
