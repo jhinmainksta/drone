@@ -100,7 +100,7 @@ ros-${ROS_DISTRO}-cv-camera \
 ros-${ROS_DISTRO}-image-publisher \
 ros-${ROS_DISTRO}-web-video-server
 
-echo_stamp "Installing libboost-dev" # https://travis-ci.org/github/CopterExpress/clover/jobs/766318908#L6536
+echo_stamp "Installing libboost-dev" # https://travis-ci.org/github/CopterExpress/drone/jobs/766318908#L6536
 my_travis_retry apt-get install -y --no-install-recommends libboost-dev libboost-all-dev
 
 echo_stamp "Build and install Drone"
@@ -120,14 +120,14 @@ cd /home/pi/catkin_ws/src/drone/builder/assets/clever
 ./setup.py install
 rm -rf build  # remove build artifacts
 
-# echo_stamp "Build Drone documentation"
-# cd /home/pi/catkin_ws/src/drone
-# builder/assets/install_gitbook.sh
-# gitbook install
-# gitbook build
+echo_stamp "Build Drone documentation"
+cd /home/pi/catkin_ws/src/drone
+builder/assets/install_gitbook.sh
+gitbook install
+gitbook build
 # replace assets copy to assets symlink to save space
-# rm -rf _book/assets && ln -s ../docs/assets _book/assets
-# touch node_modules/CATKIN_IGNORE docs/CATKIN_IGNORE _book/CATKIN_IGNORE drone/www/CATKIN_IGNORE apps/CATKIN_IGNORE # ignore documentation files by catkin
+rm -rf _book/assets && ln -s ../docs/assets _book/assets
+touch node_modules/CATKIN_IGNORE docs/CATKIN_IGNORE _book/CATKIN_IGNORE drone/www/CATKIN_IGNORE apps/CATKIN_IGNORE # ignore documentation files by catkin
 
 echo_stamp "Installing additional ROS packages"
 my_travis_retry apt-get install -y --no-install-recommends \

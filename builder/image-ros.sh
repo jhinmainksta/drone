@@ -118,7 +118,16 @@ source devel/setup.bash
 cd /home/pi/catkin_ws/src/drone/builder/assets/drone
 chmod +x setup.py
 sudo ./setup.py install
-rm -rf build
+rm -rf build # remove build artifacts
+
+# echo_stamp "Build Drone documentation"
+# cd /home/pi/catkin_ws/src/drone
+# builder/assets/install_gitbook.sh
+# gitbook install
+# gitbook build
+# replace assets copy to assets symlink to save space
+# rm -rf _book/assets && ln -s ../docs/assets _book/assets
+# touch node_modules/CATKIN_IGNORE docs/CATKIN_IGNORE _book/CATKIN_IGNORE drone/www/CATKIN_IGNORE apps/CATKIN_IGNORE # ignore documentation files by catkin
 
 cd /home/pi/catkin_ws/src/drone
 touch drone/www/CATKIN_IGNORE # ignore documentation files by catkin
@@ -151,13 +160,13 @@ echo_stamp "Change permissions for catkin_ws"
 chown -Rf pi:pi /home/pi/catkin_ws
 
 echo_stamp "Update www"
-sed -i 's/\r$//' src/drone/drone/src/www
+# sed -i 's/\r$//' src/drone/drone/src/www
 chmod -R +x src/drone/drone/src
 
 sudo -u pi sh -c ". devel/setup.sh && rosrun drone www"
 
 echo_stamp "Make \$HOME/examples symlink"
-ln -s "$(catkin_find clover examples --first-only)" /home/pi
+ln -s "$(catkin_find drone examples --first-only)" /home/pi
 chown -Rf pi:pi /home/pi/examples
 
 echo_stamp "Make systemd services symlinks"

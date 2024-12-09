@@ -134,8 +134,8 @@ echo_stamp "Make sure both pip and pip3 are installed"
 pip --version
 pip3 --version
 
-# echo_stamp "Install and enable Butterfly (web terminal)"
-# echo_stamp "Workaround for tornado >= 6.0 breaking butterfly"
+echo_stamp "Install and enable Butterfly (web terminal)"
+echo_stamp "Workaround for tornado >= 6.0 breaking butterfly"
 export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 my_travis_retry pip3 install cryptography==3.4.6 # https://stackoverflow.com/a/68472128/6850197
 my_travis_retry pip3 install pyOpenSSL==20.0.1
