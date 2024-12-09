@@ -17,9 +17,9 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   geometry_msgs
   sensor_msgs
-# led_msgs
+  led_msgs
   geographic_msgs
-#  tf
+  tf
   tf2
   tf2_geometry_msgs
   tf2_ros
@@ -211,7 +211,8 @@ target_link_libraries(${PROJECT_NAME}
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS src/reader.py
+catkin_install_python(PROGRAMS 
+  src/reader.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -239,6 +240,27 @@ install(TARGETS simple_offboard vpe_publisher shell drone
 catkin_install_python(PROGRAMS src/selfcheck.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+install(DIRECTORY examples DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+install(DIRECTORY www DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+# TODO: install www
+
+# Only install udev rules when building a Debian package
+# FIXME: Other operating systems may have other prefixes
+string(FIND ${CMAKE_INSTALL_PREFIX} "/opt/ros" _PREFIX_INDEX)
+if (${_PREFIX_INDEX} EQUAL 0)
+  message(STATUS "Building as a Debian package - adding udev rules as installable files")
+  install(FILES
+    udev/99-px4fmu.rules
+    DESTINATION /lib/udev/rules.d
+  )
+else()
+  message(STATUS "Building in a user workspace - not adding udev rules")
+endif()
 
 #############
 ## Testing ##
