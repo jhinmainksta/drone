@@ -7,3 +7,5 @@ package-lock.json
 drone_blocks/programs/*.*
 !drone_blocks/programs/examples/*
 /.vscode/
+_drone
+-builder
