@@ -33,6 +33,7 @@
         <param name="publish_rate" value="1.0"/>
     </node>
 
+    <!-- aruco markers -->
 
 
 
@@ -47,12 +48,11 @@
         <param name="disable_on_vpe" value="true"/>
     </node>
 
-
-
-
-
-
-
+    <!-- simplified offboard control -->
+    <node name="simple_offboard" pkg="drone" type="simple_offboard" output="screen" clear_params="true">
+        <param name="reference_frames/main_camera_optical" value="map"/>
+        <param name="terrain_frame_mode" value="range"/>
+    </node>
 
     <!-- main camera -->
     <include file="$(find drone)/launch/main_camera.launch" if="$(arg main_camera)">
@@ -75,12 +75,12 @@
     <!-- rangefinder's frame -->
     <node pkg="tf2_ros" type="static_transform_publisher" name="rangefinder_frame" args="0 0 -0.05 0 1.5707963268 0 base_link rangefinder" if="$(arg rangefinder_vl53l1x)"/>
 
+    <!-- led strip -->
 
 
 
 
-
-
+    <!-- Drone Blocks -->
 
 
     <!-- rc backend -->

@@ -38,6 +38,20 @@ find_package(GeographicLib REQUIRED)
 # find_package(Boost REQUIRED COMPONENTS system)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
@@ -133,7 +147,7 @@ generate_dynamic_reconfigure_options(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-LIBRARIES drone
+LIBRARIES ${PROJECT_NAME}
 #  CATKIN_DEPENDS mavros
 #  DEPENDS system_lib
 )
@@ -181,11 +195,24 @@ target_link_libraries(simple_offboard
   ${GeographicLib_LIBRARIES}
 )
 
+
+
+
+
+
+
+
+
+
 target_link_libraries(vpe_publisher ${catkin_LIBRARIES})
+
+
 
 target_link_libraries(shell ${catkin_LIBRARIES})
 
 add_dependencies(simple_offboard ${PROJECT_NAME}_generate_messages_cpp)
+
+
 
 add_dependencies(shell ${PROJECT_NAME}_generate_messages_cpp)
 
@@ -204,6 +231,7 @@ add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
+
 )
 
 #############
@@ -217,6 +245,7 @@ target_link_libraries(${PROJECT_NAME}
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS src/reader.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  
 )
 
 # Mark executables and/or libraries for installation
