@@ -16,7 +16,6 @@
 
     <arg name="simulator" default="false"/> <!-- flag that we are operating on a simulated drone -->
 
-
     <!-- log formatting -->
     <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${logger}: ${message}"/>
 
@@ -28,6 +27,17 @@
         <arg name="gcs_bridge" value="$(arg gcs_bridge)"/>
     </include>
 
+    <!-- web video server -->
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server" if="$(arg web_video_server)" required="false" respawn="true" respawn_delay="5">
+        <param name="default_stream_type" value="ros_compressed"/>
+        <param name="publish_rate" value="1.0"/>
+    </node>
+
+
+
+
+
+
     <!-- optical flow -->
     <node pkg="nodelet" type="nodelet" name="optical_flow" args="load drone/optical_flow main_camera_nodelet_manager" if="$(arg optical_flow)" clear_params="true" output="screen" respawn="true">
         <remap from="image_raw" to="main_camera/image_raw"/>
@@ -37,11 +47,12 @@
         <param name="disable_on_vpe" value="true"/>
     </node>
 
-    <!-- web video server -->
-    <node name="web_video_server" pkg="web_video_server" type="web_video_server" if="$(arg web_video_server)" required="false" respawn="true" respawn_delay="5">
-        <param name="default_stream_type" value="ros_compressed"/>
-        <param name="publish_rate" value="1.0"/>
-    </node>
+
+
+
+
+
+
 
     <!-- main camera -->
     <include file="$(find drone)/launch/main_camera.launch" if="$(arg main_camera)">
@@ -63,6 +74,14 @@
 
     <!-- rangefinder's frame -->
     <node pkg="tf2_ros" type="static_transform_publisher" name="rangefinder_frame" args="0 0 -0.05 0 1.5707963268 0 base_link rangefinder" if="$(arg rangefinder_vl53l1x)"/>
+
+
+
+
+
+
+
+
 
     <!-- rc backend -->
     <node name="rc" pkg="drone" type="rc" output="screen" if="$(arg rc)" clear_params="true">
